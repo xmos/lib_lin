@@ -2,17 +2,10 @@
 LIN Bus Module
 ==============
 
-scope:
-   General Use
-
-description:
-   LIN Bus master and slave components
-
-keywords:
-   LIN master slave uart
-
-boards:
-   XP-SKC-L2 + XA-SK-ISBUS 
+:scope: General Use
+:description: LIN Bus master and slave components
+:keywords: LIN master slave uart
+:boards: XP-SKC-L2 + XA-SK-ISBUS 
 
 
 

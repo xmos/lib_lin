@@ -26,7 +26,7 @@ lin_slave_error_t lin_master_send_frame(lin_frame_t tx_frame, out port p_master_
 
   lin_wait(LIN_RESPONSE_SPACE);
 
-  //Send data/response, and check to see if the right values were seen on the lin buse
+  //Send data/response, and check to see if the right values were seen on the lin bus
   for(int tx_counter = 0; tx_counter < tx_frame.length; tx_counter++){
     lin_tx_byte (p_master_txd, tx_frame.data[tx_counter]);
     rx_state = lin_rx_get_last_byte(rx_byte, c_a2rx); //new

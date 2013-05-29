@@ -2,18 +2,10 @@
 LIN Bus demonstration
 =====================
 
-scope:
-   General Use
-
-description:
-   LIN Bus master and slave demonstration
-
-keywords:
-   LIN master slave uart
-
-boards:
-   XP-SKC-L2 + XA-SK-ISBUS 
-
+:scope: General Use
+:description: LIN Bus master and slave demonstration
+:keywords: LIN master slave uart
+:boards: XP-SKC-L2 + XA-SK-ISBUS 
 
 
 Key Features
@@ -24,7 +16,7 @@ Key Features
 * One slave only node     
 
 Demo Overview
-=================
+=============
 
 Simple demonstration that uses master/slave API to transmit random frame from the master to the slave and then request that the slave sends it back. This forms a simple loop  back test. Any bus errors are reported and discrepancies between sent and receive frames are show on the console.
 
