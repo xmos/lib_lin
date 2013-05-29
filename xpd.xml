@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<xpd>
+    <components></components>
+    <description>LIN master and slave software components</description>
+    <location>git://git/apps/sc_lin.git</location>
+    <name>sc_lin</name>
+    <maintainer>XMOS</maintainer>
+    <vendor>XMOS</vendor>
+    <xpd_version>1.0</xpd_version>
+</xpd>
