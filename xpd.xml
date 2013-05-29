@@ -1,10 +1,21 @@
 <?xml version="1.0" ?>
 <xpd>
-    <components></components>
+    <components>
+        <component description = "LIN Bus master and slave demonstration" type = "demoCode" scope = "Example" path = "app_lin_demo" local = "false" id = "app_lin_demo" name = "app_lin_demo">
+            <board>XP-SKC-L2 + XA-SK-ISBUS</board>
+            <componentDependency>module_lin</componentDependency>
+            <keyword>LIN master slave uart</keyword>
+        </component>
+        <component description = "LIN Bus master and slave components" type = "demoCode" scope = "Example" path = "module_lin" local = "false" id = "module_lin" name = "module_lin">
+            <board>XP-SKC-L2 + XA-SK-ISBUS</board>
+            <keyword>LIN master slave uart</keyword>
+        </component>
+    </components>
     <description>LIN master and slave software components</description>
     <location>git://git/apps/sc_lin.git</location>
     <name>sc_lin</name>
     <maintainer>XMOS</maintainer>
+    <release parenthash = "80c867ae2a67fcc2c433adc35f81649fe8e0f11d" version = "1.0.0alpha0"></release>
     <vendor>XMOS</vendor>
     <xpd_version>1.0</xpd_version>
 </xpd>

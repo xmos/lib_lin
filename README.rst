@@ -2,11 +2,12 @@
 sc_lin
 ............
 
-:Stable release:  eg 0.5.1, 1.1.3, unreleased
+:Latest release: 1.0.0alpha0
+:Maintainer: XMOS
+:Description: LIN master and slave software components
 
-:Status:  eg, Feature complete, draft, idea, alpha
 
-:Maintainer:  XMOS
+
 
 Description
 ===========
@@ -39,9 +40,8 @@ Known Issues
  * LIN Rx pin requires it's own logical port (eg. 1b port or 4b port). In the case where a >1b port is used, the other signals must be static at runtime
  * This component assumes the bit time is greater than 2 * LIN propagation time
 
-Required Repositories
-================
+Required software (dependencies)
+================================
 
-* <list of repos, likely to include xcommon if it uses the build system>
-* xcommon git\@github.com:xcore/xcommon.git
+  * None
 
