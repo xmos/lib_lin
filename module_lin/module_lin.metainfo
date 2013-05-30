@@ -34,6 +34,7 @@ configPoints =
     type    = "string",
     default = "sliceKIT_ISBUS",
     options = {"sliceKIT_ISBUS","Custom"},
+    resourceUsageFlags = {"noeffect"},
     define  = "LIN_HW_PLATFORM"
    }
 }
@@ -155,11 +156,11 @@ if swblock.params.node_type == 'master' then
 generatedCode = {
   includes = {"lin_utils.h","lin_conf.h","lin_master.h"},
   globals = [[
-            out port p_master_txd${swblock.id} = ${swblock.ports.master_txd);
-            in port p_master_rxd${swblock.id} = ${swblock.ports.master_rxd);
+out port p_master_txd${swblock.id} = ${swblock.ports.p_master_txd};
+in port p_master_rxd${swblock.id} = ${swblock.ports.p_master_rxd};
            ]],
   body = [[
-    lin_rx_server(${swblock.chanends.c_c2s});
+    lin_rx_server(p_master_rxd${swblock.id}, ${swblock.chanends.c_c2s});
     ]]
 }
 
@@ -168,11 +169,11 @@ else
 generatedCode = {
   includes = {"lin_conf.h","lin_utils.h","lin_slave.h"},
   globals = [[
-            out port p_slave_txd${swblock.id} = ${swblock.ports.slave_txd);
-            in port p_slave_rxd${swblock.id} = ${swblock.ports.slave_rxd);
+out port p_slave_txd${swblock.id} = ${swblock.ports.p_slave_txd};
+in port p_slave_rxd${swblock.id} = ${swblock.ports.p_slave_rxd};
            ]],
   body = [[
-    lin_rx_server(${swblock.chanends.c_c2s});
+    lin_rx_server(p_slave_rxd${swblock.id}, ${swblock.chanends.c_c2s});
     ]]
 }
 end --node type--	     
