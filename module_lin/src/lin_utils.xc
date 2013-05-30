@@ -6,7 +6,7 @@ void lin_wait(unsigned int bit_periods){
   int timer_trigger;
   timer t_wait;
   t_wait :> timer_trigger;
-  timer_trigger += bit_periods * LIN_MASTER_BIT_TIME;
+  timer_trigger += bit_periods * LIN_BIT_TIME;
   t_wait when timerafter(timer_trigger) :> int;
 }
 

@@ -4,9 +4,7 @@
 #include "lin_conf.h"
 #include "lin_master.h"
 #include "lin_slave.h"
-#include "lin_types.h"
 #include "lin_utils.h"
-#include "lin_serial.h"
 
 #define USE_XSCOPE 1
 
@@ -104,7 +102,7 @@ void dso_app(){
   tmr :> time;
   while(1)
   {
-    time += LIN_MASTER_BIT_TIME / 10; //oversample x10. About the limit for 19.2Kbps
+    time += LIN_BIT_TIME / 10; //oversample x10. About the limit for 19.2Kbps
     masterp = peek(p_master_shadow);
     slavep = peek(p_slave_shadow);
 #if USE_XSCOPE

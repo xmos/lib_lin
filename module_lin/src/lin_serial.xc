@@ -40,7 +40,7 @@ static void lin_tx_raw(out port txd, unsigned int tx_word, int n_bits)
   else txd <: TX_DOMINANT;
   tx_bit_timer :> next_bit_tmr_tx;              //read timer time
   tx_word >>= 1;
-  next_bit_tmr_tx += LIN_MASTER_BIT_TIME;
+  next_bit_tmr_tx += LIN_BIT_TIME;
 
   // Output data bits in turn, LSB first.
   while(bit_counter > 0) {
@@ -48,7 +48,7 @@ static void lin_tx_raw(out port txd, unsigned int tx_word, int n_bits)
     if (tx_word & 0x1) txd <: TX_RECESSIVE;
     else txd <: TX_DOMINANT;
     tx_word >>= 1;
-    next_bit_tmr_tx += LIN_MASTER_BIT_TIME;
+    next_bit_tmr_tx += LIN_BIT_TIME;
     bit_counter--;
   }
 }
@@ -97,7 +97,7 @@ void lin_rx_server(in port rxd, chanend c)
             rx_bit_timer :> transition_to_dominant_rx;
             if (previous_state != SLAVE_RX_STOP_BIT_ERROR) break_start_time = transition_to_dominant_rx;
             if (bit_counter == 0){
-              next_rx_sample_time = transition_to_dominant_rx + (LIN_MASTER_BIT_TIME / 2);
+              next_rx_sample_time = transition_to_dominant_rx + (LIN_BIT_TIME / 2);
               current_state = SLAVE_RX_IN_PROGRESS;
             }
             lin_bus_next = RX_RECESSIVE;
@@ -107,7 +107,7 @@ void lin_rx_server(in port rxd, chanend c)
           else if (lin_bus_next == RX_RECESSIVE){
             rx_bit_timer :> transition_to_recessive_rx;
             if((transition_to_recessive_rx - break_start_time)
-                > (LIN_MASTER_BIT_TIME * LIN_SYNCH_BREAK_THRESHOLD_SLAVE)){
+                > (LIN_BIT_TIME * LIN_SYNCH_BREAK_THRESHOLD_SLAVE)){
               current_state = SLAVE_RX_BREAK_OK;
             }
             lin_bus_next = RX_DOMINANT;
@@ -132,7 +132,7 @@ void lin_rx_server(in port rxd, chanend c)
             current_state = SLAVE_RX_STOP_BIT_ERROR;
           }
 
-          next_rx_sample_time += LIN_MASTER_BIT_TIME;
+          next_rx_sample_time += LIN_BIT_TIME;
           bit_counter++;
           break;
 

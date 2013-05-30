@@ -29,7 +29,7 @@ lin_slave_error_t lin_master_send_frame(lin_frame_t tx_frame, out port p_master_
   //Send data/response, and check to see if the right values were seen on the lin bus
   for(int tx_counter = 0; tx_counter < tx_frame.length; tx_counter++){
     lin_tx_byte (p_master_txd, tx_frame.data[tx_counter]);
-    rx_state = lin_rx_get_last_byte(rx_byte, c_a2rx); //new
+    rx_state = lin_rx_get_last_byte(rx_byte, c_a2rx);
     if ((rx_state == SLAVE_RX_START_BIT_ERROR) || (rx_state == SLAVE_RX_STOP_BIT_ERROR)){
       return_error = LIN_ERR_FRAMING;
       return return_error;

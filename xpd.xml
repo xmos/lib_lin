@@ -15,7 +15,9 @@
     <location>git://git/apps/sc_lin.git</location>
     <name>sc_lin</name>
     <maintainer>XMOS</maintainer>
-    <release parenthash = "80c867ae2a67fcc2c433adc35f81649fe8e0f11d" version = "1.0.0alpha0"></release>
+    <partnumber>XM-003013-DH</partnumber>
+    <release parenthash = "80c867ae2a67fcc2c433adc35f81649fe8e0f11d" version = "1.0.0alpha0" githash = "a3c31955aa594320315881ffb68a73093f188041"></release>
+    <subpartnumber>XM-003014-SM</subpartnumber>
     <vendor>XMOS</vendor>
     <xpd_version>1.0</xpd_version>
 </xpd>
