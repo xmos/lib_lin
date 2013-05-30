@@ -30,7 +30,7 @@ lin_slave_error_t lin_slave_wait_for_header(chanend c_a2rx, unsigned char &id);
  * Sends a response array consisting of data, inlcuding checksum, contained
  * in the lin_frame passed to it.
  * Listens to see if response section is correctly seen on bus and
- * returns an error code if not successful. Blocks until last bit transmitted
+ * returns an error code if not successful. Blocks until last bit transmitted.
  *
  * /param p_slave_txd is the slave tx port on which to transmit data.
  * /param c_a2rx is the channel for client communications with the rx sever
@@ -41,7 +41,7 @@ lin_slave_error_t lin_slave_send_response(out port p_slave_txd, chanend c_a2rx, 
 
 /**
  * Gets a response array consisting of data, inlcuding checksum, and
- * copies it into the lin_frame passed to it.
+ * copies it into the lin_frame passed to it. Blocks until checksum received or timeout.
  * Reports an error if there is a start/stop bit error, parity error or timeout
  *
  * /param c_a2rx is the channel for client communications with the rx sever

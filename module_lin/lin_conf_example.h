@@ -10,10 +10,17 @@
 #endif
 
 //Port values for high/low. Useful in cases where LIN ports are on >1b port widths
+#if LIN_HW_PLATFORM != sliceKIT_ISBUS
 #define TX_RECESSIVE                    0xf //bits 3..0 = 1
 #define TX_DOMINANT                     0xb //bits 3, 1..0 = 1, bit 2 (txd) = 0
 #define RX_RECESSIVE                    0x1 //bits 3..1 = 0, bit 0 (rxd) = 0
 #define RX_DOMINANT                     0x0 //bits 3..0 = 0
+#else
+#define TX_RECESSIVE                    0x1
+#define TX_DOMINANT                     0x0
+#define RX_RECESSIVE                    0x1
+#define RX_DOMINANT                     0x0
+#endif
 
 
 //LIN frame timing parameters units are bit times unless specified
