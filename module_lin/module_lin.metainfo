@@ -34,7 +34,7 @@ configPoints =
     type    = "string",
     default = "sliceKIT_ISBUS",
     options = {"sliceKIT_ISBUS","Custom"}
-    define  = "LIN_HW_PLATFORM",
+    define  = "LIN_HW_PLATFORM"
   },
 }
   lin_baud_rate = {
@@ -48,7 +48,7 @@ configPoints =
     max = 38400,
     resourceUsageFlags = {"linear"},
     define = LIN_BAUD_RATE
-  },
+  }
 }
 
 derivedValues = {}
@@ -63,14 +63,14 @@ if swblock.params.node_type == 'master' then
         long    = "",
         help    = "",
         width   = 4,
-        value   = "XS1_PORT_4A",
+        value   = "XS1_PORT_4A"
       },
         p_master_rxd = {
         short   = "Master UART RXD port",
         long    = "",
         help    = "",
         width   = 4,
-        value   = "XS1_PORT_4B",
+        value   = "XS1_PORT_4B"
       },
    else --custom hw--
         p_master_txd = {
@@ -78,15 +78,15 @@ if swblock.params.node_type == 'master' then
         long    = "",
         help    = "",
         width   = 1,
-        value   = "XS1_PORT_1A",
+        value   = "XS1_PORT_1A"
       },
         p_master_rxd = {
         short   = "Master UART RXD port",
         long    = "",
         help    = "",
         width   = 1,
-        value   = "XS1_PORT_1B",
-      },
+        value   = "XS1_PORT_1B"
+      }
   end --hw platform--
 
 else  --node type is slave--
@@ -96,29 +96,29 @@ else  --node type is slave--
         long    = "",
         help    = "",
         width   = 4,
-        value   = "XS1_PORT_4E",
+        value   = "XS1_PORT_4E"
       },
         p_slave_rxd = {
         short   = "Slave UART RXD port",
         long    = "",
         help    = "",
         width   = 4,
-        value   = "XS1_PORT_4F",
+        value   = "XS1_PORT_4F"
    else --custom hw--
         p_slave_txd = {
         short   = "Slave UART TXD port",
         long    = "",
         help    = "",
         width   = 1,
-        value   = "XS1_PORT_1C",
+        value   = "XS1_PORT_1C"
       },
         p_slave_rxd = {
         short   = "Slave UART RXD port",
         long    = "",
         help    = "",
         width   = 1,
-        value   = "XS1_PORT_1D",
-      },
+        value   = "XS1_PORT_1D"
+      }
     end --hw platform--
 end --node type--
 }
@@ -127,8 +127,8 @@ channels = {
   c_c2s = {
     short = "UART RX server channel",
     long  = "Channel for the UART rx server to communicate with the client slave and master functions",
-    help  = "Required channel communication channel to allow the dedicated LIN UART RX core to take commands and pass back status and data when queried",
-  },
+    help  = "Required channel communication channel to allow the dedicated LIN UART RX core to take commands and pass back status and data when queried"
+  }
 }    
 
 function getConfigStatus()
@@ -143,9 +143,9 @@ end
 
 generatedCode = {
 if swblock.params.node_type == 'master' then
-  includes = {"lin_utils.h","lin_conf.h","lin_master.h"},
+  includes = {"lin_utils.h","lin_conf.h","lin_master.h"}
 else
-  includes = {"lin_conf.h","lin_utils.h","lin_slave.h"},
+  includes = {"lin_conf.h","lin_utils.h","lin_slave.h"}
 end --node type--
 
 
@@ -165,14 +165,14 @@ end --node type--
 }
 
   files = {
-  ["module_lin/lin_conf_example.h"] = "src/lin_conf.h",
+  ["module_lin/lin_conf_example.h"] = "src/lin_conf.h"
 }
 
 if swblock.params.node_type == 'master' then
 api = {
 	'lin_master_init',
 	'lin_master_send_frame',
-	'lin_master_request_frame',
+	'lin_master_request_frame'
 
 
 else
@@ -197,7 +197,7 @@ configSets =
 	 lin_node_type	= "slave",
 	 lin_hw_platform = "sliceKIT_ISBUS",
   	 lin_baud_rate	= 19200
-	},
+	}
 }
 
 ￼-- Resource Usage.
@@ -210,9 +210,9 @@ estimatedResourcesUsage = {
   timers = minUsage.timers, 
   cores = minUsage.threads,
   clocks = minUsage.clock,
-  locks = minUsage.locks,
+  locks = minUsage.locks
 }
 resourceConstraints = {
   reservedCores = 0,
-  minimumCoreSpeed = 50,
+  minimumCoreSpeed = 50
 }
