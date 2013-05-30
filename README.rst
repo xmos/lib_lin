@@ -2,11 +2,9 @@
 sc_lin
 ............
 
-:Latest release: 1.0.0alpha0
+:Latest release: 1.0.0alpha1
 :Maintainer: XMOS
 :Description: LIN master and slave software components
-
-
 
 
 Description
