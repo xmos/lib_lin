@@ -1,6 +1,7 @@
-#Wed May 29 16:16:48 BST 2013
+#Thu May 30 16:57:30 BST 2013
 SAVE_ALL_BEFORE_BUILD=true
 eclipse.preferences.version=1
-tipsAndTricks=false
 platformState=1368692654837
+tipsAndTricks=false
 quickStart=false
+PROBLEMS_FILTERS_MIGRATE=true
