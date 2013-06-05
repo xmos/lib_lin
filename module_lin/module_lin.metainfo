@@ -2,7 +2,7 @@
 -- Descriptive metadata
 -------------------------------------------------------------------------------
 
-componentName = "LIN bus"
+componentName = "LIN bus protocol component"
 componentFullName = "LIN bus master and slave components"
 alternativeNames = {}
 componentDescription = "LIN bus master and slave protocol components"
