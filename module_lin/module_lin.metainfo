@@ -26,7 +26,8 @@ configPoints =
     define  = "LIN_NODE_TYPE"
   },
 
-  lin_hw_platform = {
+  lin_hw_platform = 
+  {
     short = "Hardware platform",
     long = "Choose sliceKIT/IS-BUS or custom hardware",
     help = "Choosing sliceKIT/IS-BUS fixes the TXD & RXD port width to 4b to match the kit pinout. Custom setting allows 1b ports for TXD & RXD",
@@ -36,9 +37,10 @@ configPoints =
     default = "sliceKIT_ISBUS",
     resourceUsageFlags = {"noeffect"},
     define  = "LIN_HW_PLATFORM"
-   }
+   },
 
-  lin_baud_rate = {
+  lin_baud_rate = 
+  {
     short = "Baud rate in bits per second",
     long = "",
     help = "Choose the baud rate for the LIN node. Note that minimum and maximum is generally bounded by the transceiver. With a suitable physical layer, speeds of 115Kbaud are possible from this component",
@@ -59,35 +61,35 @@ if swblock.params.lin_node_type == "master" then
    if swblock.params.lin_hw_platform == "sliceKIT_ISBUS" then
 
 ports = {      
-        p_master_txd = {
+        p_txd = {
         short   = "Master UART TXD port",
         long    = "",
         help    = "",
         width   = 4,
         value   = "XS1_PORT_4A"
       },
-        p_master_rxd = {
+        p_rxd = {
         short   = "Master UART RXD port",
         long    = "",
         help    = "",
         width   = 4,
         value   = "XS1_PORT_4B"
-      },
+      }
     }
    else --custom hw--
 
 ports = {
-        p_master_txd = {
+        p_txd = {
         short   = "Master UART TXD port",
         long    = "",
         help    = "",
-        width   = 1,
+        width   = 1
       },
-        p_master_rxd = {
+        p_rxd = {
         short   = "Master UART RXD port",
         long    = "",
         help    = "",
-        width   = 1,
+        width   = 1
       }
     }
   end --hw platform--
@@ -97,14 +99,14 @@ else  --node type is slave--
    if swblock.params.lin_hw_platform == "sliceKIT_ISBUS" then
 
 ports = {
-        p_slave_txd = {
+        p_txd = {
         short   = "Slave UART TXD port",
         long    = "",
         help    = "",
         width   = 4,
         value   = "XS1_PORT_4E"
       },
-        p_slave_rxd = {
+        p_rxd = {
         short   = "Slave UART RXD port",
         long    = "",
         help    = "",
@@ -115,17 +117,17 @@ ports = {
    else --custom hw--
 
 ports = {
-        p_slave_txd = {
+        p_txd = {
         short   = "Slave UART TXD port",
         long    = "",
         help    = "",
-        width   = 1,
+        width   = 1
       },
-        p_slave_rxd = {
+        p_rxd = {
         short   = "Slave UART RXD port",
         long    = "",
         help    = "",
-        width   = 1,
+        width   = 1
       }
     }
     end --hw platform--
@@ -154,8 +156,8 @@ if swblock.params.lin_node_type == "master" then
 generatedCode = {
   includes = {"lin_utils.h","lin_conf.h","lin_master.h"},
   globals = [[
-out port p_master_txd${swblock.id} = ${swblock.ports.p_master_txd};
-in port p_master_rxd${swblock.id} = ${swblock.ports.p_master_rxd};
+out port p_master_txd${swblock.id} = ${swblock.ports.p_txd};
+in port p_master_rxd${swblock.id} = ${swblock.ports.p_rxd};
            ]],
   body = [[
     lin_rx_server(p_master_rxd${swblock.id}, ${swblock.chanends.c_c2s});
@@ -167,26 +169,26 @@ else
 generatedCode = {
   includes = {"lin_conf.h","lin_utils.h","lin_slave.h"},
   globals = [[
-out port p_slave_txd${swblock.id} = ${swblock.ports.p_slave_txd};
-in port p_slave_rxd${swblock.id} = ${swblock.ports.p_slave_rxd};
+out port p_slave_txd${swblock.id} = ${swblock.ports.p_txd};
+in port p_slave_rxd${swblock.id} = ${swblock.ports.p_rxd};
            ]],
   body = [[
     lin_rx_server(p_slave_rxd${swblock.id}, ${swblock.chanends.c_c2s});
     ]]
 }
-end --node type--	     
+end --node type master--	     
 
 
 files = {
   ["module_lin/lin_conf_example.h"] = "src/lin_conf.h"
   }
 
-if swblock.params.lin_node_type == 'master' then
+if swblock.params.lin_node_type == "master" then
   api = {
 	'lin_master_init',
 	'lin_master_send_frame',
 	'lin_master_request_frame'
-}
+  }
 
 else
   api = {
@@ -195,6 +197,6 @@ else
 	'lin_slave_send_response',
 	'lin_slave_get_response'
   } 
-end --node type--
+end --node type --
 
 
