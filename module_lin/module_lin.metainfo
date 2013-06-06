@@ -32,32 +32,31 @@ configPoints =
     help = "Choosing sliceKIT/IS-BUS fixes the TXD & RXD port width to 4b to match the kit pinout. Custom setting allows 1b ports for TXD & RXD",
     units   = "HW target",
     type    = "string",
-    default = "sliceKIT_ISBUS",
     options = {"sliceKIT_ISBUS","Custom"},
+    default = "sliceKIT_ISBUS",
     resourceUsageFlags = {"noeffect"},
     define  = "LIN_HW_PLATFORM"
    }
-}
 
   lin_baud_rate = {
     short = "Baud rate in bits per second",
     long = "",
-    help = "Choose the baud rate for the LIN node. Note that minimum and maximum is generally bounded by the transceiver. With a different physical layer, speeds of 115Kbaud are possible",
+    help = "Choose the baud rate for the LIN node. Note that minimum and maximum is generally bounded by the transceiver. With a suitable physical layer, speeds of 115Kbaud are possible from this component",
     type = "int",
     units = "bits per second",
-    default = 19200,
     min = 2048,
     max = 38400,
     resourceUsageFlags = {"noeffect"},
-    define = "LIN_BAUD_RATE"
+    define = "LIN_BAUD_RATE",
+    default = 19200
   }
-
+}
 
 derivedValues = {}
 
 
-if swblock.params.node_type == 'master' then
-   if swblock.params.lin_hw_platform == 'sliceKIT/IS-BUS' then
+if swblock.params.lin_node_type == "master" then
+   if swblock.params.lin_hw_platform == "sliceKIT_ISBUS" then
 
 ports = {      
         p_master_txd = {
@@ -76,26 +75,26 @@ ports = {
       },
     }
    else --custom hw--
+
 ports = {
         p_master_txd = {
         short   = "Master UART TXD port",
         long    = "",
         help    = "",
         width   = 1,
-        value   = "XS1_PORT_1A"
       },
         p_master_rxd = {
         short   = "Master UART RXD port",
         long    = "",
         help    = "",
         width   = 1,
-        value   = "XS1_PORT_1B"
       }
     }
   end --hw platform--
 
 else  --node type is slave--
-   if swblock.params.lin_hw_platform == 'sliceKIT/IS-BUS' then
+
+   if swblock.params.lin_hw_platform == "sliceKIT_ISBUS" then
 
 ports = {
         p_slave_txd = {
@@ -114,20 +113,19 @@ ports = {
       }
     }
    else --custom hw--
+
 ports = {
         p_slave_txd = {
         short   = "Slave UART TXD port",
         long    = "",
         help    = "",
         width   = 1,
-        value   = "XS1_PORT_1C"
       },
         p_slave_rxd = {
         short   = "Slave UART RXD port",
         long    = "",
         help    = "",
         width   = 1,
-        value   = "XS1_PORT_1D",
       }
     }
     end --hw platform--
@@ -143,7 +141,7 @@ channels = {
 }    
 
 function getConfigStatus()
-  local status = "Trusted Configuration"
+  local status = "Valid Configuration"
   local issues = {}
   return status, issues
 end
@@ -152,7 +150,7 @@ end
 -- Source generation functions
 -------------------------------------------------------------------------------
 
-if swblock.params.node_type == 'master' then
+if swblock.params.lin_node_type == "master" then
 generatedCode = {
   includes = {"lin_utils.h","lin_conf.h","lin_master.h"},
   globals = [[
@@ -183,7 +181,7 @@ files = {
   ["module_lin/lin_conf_example.h"] = "src/lin_conf.h"
   }
 
-if swblock.params.node_type == 'master' then
+if swblock.params.lin_node_type == 'master' then
   api = {
 	'lin_master_init',
 	'lin_master_send_frame',
