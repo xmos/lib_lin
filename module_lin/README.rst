@@ -2,15 +2,10 @@
 LIN Bus Module
 ==============
 
-scope: 
-   Early Development
-description:
-   LIN Bus master and slave component
-keywords: 
-   LIN,master,slave,uart,bus
-boards: 
-   XP-SKC-L2
-   XA-SK-ISBUS 
+:scope: Early Development
+:description: LIN Bus master and slave component
+:keywords: LIN master slave uart bus automotive industrial
+:boards: XP-SKC-L2 XA-SK-ISBUS 
 
 
 
