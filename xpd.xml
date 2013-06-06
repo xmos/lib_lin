@@ -6,6 +6,10 @@
             <componentDependency>module_lin</componentDependency>
             <keyword>LIN master slave uart</keyword>
         </component>
+        <component name = "module_lin" type = "component" buildresults_path = "module_lin/.module_lin.buildinfo" scope = "Early Development" path = "module_lin" metainfo_path = "module_lin/module_lin.metainfo" local = "false" id = "module_lin" description = "LIN Bus master and slave component">
+            <board>XP-SKC-L2 XA-SK-ISBUS</board>
+            <keyword>LIN master slave uart bus automotive industrial</keyword>
+        </component>
     </components>
     <description>LIN master and slave software components</description>
     <location>git://git/apps/sc_lin.git</location>
