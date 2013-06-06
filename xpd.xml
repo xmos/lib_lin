@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
 <xpd>
     <components>
-        <component description = "LIN Bus master and slave demonstration" type = "demoCode" scope = "Example" path = "app_lin_demo" local = "false" id = "app_lin_demo" name = "app_lin_demo">
-            <board>XP-SKC-L2 + XA-SK-ISBUS</board>
+        <component description = "LIN Bus master and slave demonstration" type = "demoCode" scope = "Example" path = "app_lin_demo" local = "false" id = "app_lin_demo" name = "LIN Bus Master/Slave Loopback demo">
+            <board>XP-SKC-L2 XA-SK-ISBUS</board>
             <componentDependency>module_lin</componentDependency>
             <keyword>LIN master slave uart</keyword>
         </component>
