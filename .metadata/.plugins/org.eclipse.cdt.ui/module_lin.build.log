@@ -2,4 +2,4 @@
 **** Build of configuration Default for project module_lin ****
 
 xmake -f .makefile all 
-.makefile:2: *** missing separator.  Stop.
+** Module only - only builds as part of application **
