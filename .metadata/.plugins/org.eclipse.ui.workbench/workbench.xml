@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="33" version="2.0">
 <workbenchAdvisor/>
-<window height="1028" minimized="true" width="1639" x="56" y="22">
+<window height="878" width="1399" x="185" y="64">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -34,28 +34,13 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
-<part id="1"/>
-<part id="2"/>
-<part id="3"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
 <editor activePart="true" focus="true" id="com.xmos.cdt.ui.XCEditor" name="app_lin_demo.xc" partName="app_lin_demo.xc" path="/Users/Ed/apps/sc_lin/app_lin_demo/src/app_lin_demo.xc" title="app_lin_demo.xc" tooltip="app_lin_demo/src/app_lin_demo.xc" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/app_lin_demo/src/app_lin_demo.xc"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4056" selectionTopPixel="62"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="lin_serial.h" partName="lin_serial.h" path="/Users/Ed/apps/sc_lin/module_lin/src/lin_serial.h" title="lin_serial.h" tooltip="module_lin/src/lin_serial.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/module_lin/src/lin_serial.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="374"/>
-</editor>
-<editor id="com.xmos.cdt.ui.XCEditor" name="lin_slave.xc" partName="lin_slave.xc" path="/Users/Ed/apps/sc_lin/module_lin/src/lin_slave.xc" title="lin_slave.xc" tooltip="module_lin/src/lin_slave.xc" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/module_lin/src/lin_slave.xc"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="898" selectionTopPixel="0"/>
-</editor>
-<editor id="com.xmos.cdt.ui.XCEditor" name="lin_serial.xc" partName="lin_serial.xc" path="/Users/Ed/apps/sc_lin/module_lin/src/lin_serial.xc" title="lin_serial.xc" tooltip="module_lin/src/lin_serial.xc" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/module_lin/src/lin_serial.xc"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="1036"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1607" selectionTopPixel="546"/>
 </editor>
 </editors>
 <views>
@@ -70,6 +55,9 @@
 <view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
 <view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
 </viewState>
+</view>
+<view id="com.xmos.xscope.ui.views.xscope.XScope" partName="Real-Time Scope">
+<viewState/>
 </view>
 <view id="org.eclipse.debug.ui.DebugView" partName="Debug">
 <viewState/>
@@ -107,7 +95,7 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (1 item)"/>
+<category IMemento.internal.id="Errors (1 item)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -165,9 +153,9 @@
 <hide_menu_item_id id="org.eclipse.cdt.ui.prjmenu"/>
 <hide_toolbar_item_id id="org.eclipse.ui.file.print"/>
 <hide_toolbar_item_id id="org.eclipse.search.searchActionSet"/>
-<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
-<hide_toolbar_item_id id="org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar"/>
 <hide_toolbar_item_id id="newWizardDropDown"/>
+<hide_toolbar_item_id id="org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.eclipse.cdt.ui.buildConfigToolbarAction"/>
 <view id="org.eclipse.ui.navigator.ProjectExplorer"/>
 <view id="com.xmos.xsoftip.ui.views.xsoftip.XSoftIPView"/>
@@ -177,6 +165,7 @@
 <view id="org.eclipse.ui.views.TaskList"/>
 <view id="org.eclipse.debug.ui.DebugView"/>
 <view id="org.eclipse.search.ui.views.SearchView"/>
+<view id="com.xmos.xscope.ui.views.xscope.XScope"/>
 <view id="com.xmos.devcolumn.ui.views.devcolumn.DevColumn"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.cdt.make.ui.views.MakeView"/>
@@ -201,23 +190,24 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.21105193" ratioLeft="317" ratioRight="1185" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottom" ratio="0.6998536" ratioLeft="478" ratioRight="205" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="bottom" ratio="0.7185567" ratioLeft="697" ratioRight="273" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
+<page content="com.xmos.xscope.ui.views.xscope.XScope" label="Real-Time Scope"/>
 <page content="com.xmos.cdt.ui.views.binary.Binary" label="LabelNotFound"/>
 <page content="com.xmos.xvcd.views.waves.Waves" label="LabelNotFound"/>
 <page content="com.xmos.xprobe.ui.views.xprobe.XProbe" label="LabelNotFound"/>
-<page content="com.xmos.xscope.ui.views.xscope.XScope" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
 <part id="4"/>
+<part id="5"/>
 </presentation>
 </folder>
 </info>
@@ -419,176 +409,178 @@
 <workingSets/>
 <navigationHistory>
 <editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/module_lin/src/lin_serial.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/module_lin/src/lin_slave.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/module_lin/src/lin_master.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xmos.cdt.ui.XCEditor" path="/app_lin_demo/src/app_lin_demo.xc"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/module_lin/lin_conf_example.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/app_lin_demo/src/lin_conf.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/module_lin/lin_conf_example.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/app_lin_demo/src/lin_conf.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/module_lin/src/lin_slave.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xmos.cdt.ui.XCEditor" path="/module_lin/src/lin_slave.xc"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xmos.cdt.ui.XCEditor" path="/module_lin/src/lin_serial.xc"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xmos.cdt.ui.XCEditor" path="/app_lin_demo/src/app_lin_demo.xc"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xmos.cdt.ui.XCEditor" path="/module_lin/src/lin_serial.xc"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xmos.cdt.ui.XCEditor" path="/app_lin_demo/src/app_lin_demo.xc"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/app_lin_demo/src/lin_conf.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/module_lin/src/lin_serial.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/module_lin/src/lin_slave.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xmos.cdt.ui.XCEditor" path="/module_lin/src/lin_master.xc"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xmos.cdt.ui.XCEditor" path="/module_lin/src/lin_serial.xc"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xmos.cdt.ui.XCEditor" path="/module_lin/src/lin_slave.xc"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/module_lin/src/lin_master.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xmos.cdt.ui.XCEditor" path="/app_lin_demo/src/app_lin_demo.xc"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/module_lin/lin_conf_example.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/app_lin_demo/src/lin_conf.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/module_lin/lin_conf_example.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/app_lin_demo/src/lin_conf.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/module_lin/src/lin_slave.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xmos.cdt.ui.XCEditor" path="/module_lin/src/lin_slave.xc"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xmos.cdt.ui.XCEditor" path="/module_lin/src/lin_serial.xc"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xmos.cdt.ui.XCEditor" path="/app_lin_demo/src/app_lin_demo.xc"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xmos.cdt.ui.XCEditor" path="/module_lin/src/lin_serial.xc"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xmos.cdt.ui.XCEditor" path="/app_lin_demo/src/app_lin_demo.xc"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/app_lin_demo/src/lin_conf.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/module_lin/lin_conf_example.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/module_lin/module_description"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/module_lin/src/lin_serial.h"/>
 </editors>
-<item historyLabel="lin_master.h" index="0">
-<position info="not_deleted" x="115" y="0"/>
-</item>
-<item historyLabel="lin_slave.h" index="4">
-<position info="not_deleted" x="113" y="0"/>
-</item>
-<item historyLabel="app_lin_demo.xc" index="1">
-<position info="not_deleted" x="4748" y="48"/>
-</item>
-<item historyLabel="lin_master.h" index="0">
-<position info="not_deleted" x="92" y="23"/>
-</item>
-<item historyLabel="lin_slave.h" index="4">
-<position info="not_deleted" x="90" y="23"/>
-</item>
-<item historyLabel="app_lin_demo.xc" index="1">
-<position info="not_deleted" x="4760" y="13"/>
-</item>
-<item historyLabel="lin_master.xc" index="5">
-<position info="not_deleted" x="1020" y="0"/>
-</item>
-<item historyLabel="lin_conf.h" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="lin_conf.h" index="2">
-<position info="not_deleted" x="453" y="0"/>
-</item>
-<item historyLabel="lin_conf.h" index="2">
-<position info="not_deleted" x="1919" y="6"/>
-</item>
-<item historyLabel="lin_conf.h" index="2">
-<position info="not_deleted" x="748" y="2"/>
-</item>
-<item historyLabel="lin_conf.h" index="2">
-<position info="not_deleted" x="983" y="0"/>
-</item>
-<item historyLabel="lin_serial.xc" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="lin_slave.xc" index="7">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="lin_master.xc" index="5">
-<position info="not_deleted" x="1020" y="0"/>
-</item>
-<item historyLabel="lin_serial.xc" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="lin_master.xc" index="5">
-<position info="not_deleted" x="1020" y="0"/>
-</item>
-<item historyLabel="lin_slave.xc" index="7">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="lin_master.h" index="8">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="lin_slave.h" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="lin_master.h" index="8">
+<item historyLabel="lin_master.h" index="2">
 <position info="not_deleted" x="426" y="1619"/>
 </item>
-<item historyLabel="lin_slave.h" index="4">
+<item historyLabel="lin_slave.h" index="1">
 <position info="not_deleted" x="1294" y="0"/>
 </item>
-<item historyLabel="lin_master.h" index="8">
+<item historyLabel="lin_master.h" index="2">
 <position info="not_deleted" x="426" y="1619"/>
 </item>
-<item historyLabel="lin_slave.h" index="4">
+<item historyLabel="lin_slave.h" index="1">
 <position info="not_deleted" x="1294" y="0"/>
 </item>
-<item historyLabel="app_lin_demo.xc" index="9">
+<item historyLabel="app_lin_demo.xc" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="lin_conf_example.h" index="10">
+<item historyLabel="lin_conf_example.h" index="4">
 <position info="not_deleted" x="218" y="0"/>
 </item>
-<item historyLabel="lin_conf.h" index="11">
+<item historyLabel="lin_conf.h" index="5">
 <position info="not_deleted" x="347" y="586"/>
 </item>
-<item historyLabel="lin_conf_example.h" index="10">
+<item historyLabel="lin_conf_example.h" index="4">
 <position info="not_deleted" x="926" y="0"/>
 </item>
-<item historyLabel="lin_slave.h" index="4">
+<item historyLabel="lin_slave.h" index="1">
 <position info="not_deleted" x="1294" y="0"/>
 </item>
-<item historyLabel="lin_serial.h" index="3">
+<item historyLabel="lin_serial.h" index="0">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="app_lin_demo.xc" index="9">
+<item historyLabel="app_lin_demo.xc" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="lin_conf_example.h" index="12">
+<item historyLabel="lin_conf_example.h" index="6">
 <position/>
 </item>
-<item historyLabel="lin_conf.h" index="13">
+<item historyLabel="lin_conf.h" index="7">
 <position info="not_deleted" x="451" y="0"/>
 </item>
-<item historyLabel="lin_conf_example.h" index="12">
+<item historyLabel="lin_conf_example.h" index="6">
 <position/>
 </item>
-<item historyLabel="lin_conf.h" index="13">
+<item historyLabel="lin_conf.h" index="7">
 <position info="not_deleted" x="347" y="586"/>
 </item>
-<item historyLabel="lin_conf_example.h" index="12">
+<item historyLabel="lin_conf_example.h" index="6">
 <position info="not_deleted" x="933" y="0"/>
 </item>
-<item historyLabel="lin_conf.h" index="13">
+<item historyLabel="lin_conf.h" index="7">
 <position info="not_deleted" x="347" y="586"/>
 </item>
-<item historyLabel="app_lin_demo.xc" index="9">
+<item historyLabel="app_lin_demo.xc" index="3">
 <position info="not_deleted" x="369" y="0"/>
 </item>
-<item historyLabel="lin_slave.h" index="14">
+<item historyLabel="lin_slave.h" index="8">
 <position info="not_deleted" x="1294" y="0"/>
 </item>
-<item historyLabel="app_lin_demo.xc" index="9">
+<item historyLabel="app_lin_demo.xc" index="3">
 <position info="not_deleted" x="369" y="0"/>
 </item>
-<item historyLabel="lin_slave.xc" index="15">
+<item historyLabel="lin_slave.xc" index="9">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="lin_serial.xc" index="16">
+<item historyLabel="lin_serial.xc" index="10">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="lin_slave.xc" index="15">
+<item historyLabel="lin_slave.xc" index="9">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="app_lin_demo.xc" index="17">
+<item historyLabel="app_lin_demo.xc" index="11">
 <position info="not_deleted" x="369" y="0"/>
 </item>
-<item historyLabel="lin_serial.xc" index="18">
+<item historyLabel="lin_serial.xc" index="12">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="app_lin_demo.xc" index="19">
+<item historyLabel="app_lin_demo.xc" index="13">
 <position info="not_deleted" x="706" y="0"/>
 </item>
-<item historyLabel="app_lin_demo.xc" index="19">
+<item historyLabel="app_lin_demo.xc" index="13">
 <position info="not_deleted" x="88" y="0"/>
 </item>
-<item historyLabel="app_lin_demo.xc" index="19">
+<item historyLabel="app_lin_demo.xc" index="13">
 <position info="not_deleted" x="830" y="177"/>
 </item>
-<item historyLabel="app_lin_demo.xc" index="19">
+<item historyLabel="app_lin_demo.xc" index="13">
 <position info="not_deleted" x="827" y="0"/>
 </item>
-<item active="true" historyLabel="app_lin_demo.xc" index="19">
+<item historyLabel="app_lin_demo.xc" index="13">
 <position info="not_deleted" x="1370" y="80"/>
+</item>
+<item historyLabel="app_lin_demo.xc" index="13">
+<position info="not_deleted" x="264" y="0"/>
+</item>
+<item historyLabel="app_lin_demo.xc" index="13">
+<position info="not_deleted" x="88" y="0"/>
+</item>
+<item historyLabel="lin_conf.h" index="14">
+<position info="not_deleted" x="1638" y="0"/>
+</item>
+<item historyLabel="app_lin_demo.xc" index="13">
+<position info="not_deleted" x="2285" y="0"/>
+</item>
+<item historyLabel="lin_conf.h" index="14">
+<position info="not_deleted" x="323" y="0"/>
+</item>
+<item historyLabel="app_lin_demo.xc" index="13">
+<position info="not_deleted" x="2285" y="0"/>
+</item>
+<item historyLabel="lin_serial.h" index="15">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="lin_slave.xc" index="16">
+<position info="not_deleted" x="898" y="0"/>
+</item>
+<item historyLabel="lin_serial.xc" index="17">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="app_lin_demo.xc" index="13">
+<position info="not_deleted" x="2285" y="0"/>
+</item>
+<item historyLabel="lin_conf.h" index="18">
+<position info="not_deleted" x="87" y="0"/>
+</item>
+<item historyLabel="lin_conf_example.h" index="19">
+<position info="not_deleted" x="85" y="0"/>
+</item>
+<item historyLabel="lin_conf.h" index="18">
+<position info="not_deleted" x="87" y="0"/>
+</item>
+<item historyLabel="module_description" index="20">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="lin_conf.h" index="18">
+<position info="not_deleted" x="87" y="0"/>
+</item>
+<item historyLabel="app_lin_demo.xc" index="13">
+<position info="not_deleted" x="2940" y="0"/>
+</item>
+<item historyLabel="lin_serial.h" index="21">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="app_lin_demo.xc" index="13">
+<position info="not_deleted" x="2953" y="0"/>
+</item>
+<item historyLabel="app_lin_demo.xc" index="13">
+<position info="not_deleted" x="185" y="0"/>
+</item>
+<item active="true" historyLabel="app_lin_demo.xc" index="13">
+<position info="not_deleted" x="1422" y="2"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -596,6 +588,14 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="topLeft"/>
+<trimItem IMemento.internal.id="bottomLeft"/>
+</trimArea>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="bottom"/>
+<trimItem IMemento.internal.id="topRight"/>
+</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 </trimArea>
@@ -610,6 +610,18 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="README.rst" tooltip="app_lin_demo/README.rst">
 <persistable path="/app_lin_demo/README.rst"/>
 </file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="module_lin.metainfo" tooltip="module_lin/module_lin.metainfo">
+<persistable path="/module_lin/module_lin.metainfo"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="module_description" tooltip="module_lin/module_description">
+<persistable path="/module_lin/module_description"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lin_conf_example.h" tooltip="module_lin/lin_conf_example.h">
+<persistable path="/module_lin/lin_conf_example.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lin_conf.h" tooltip="app_lin_demo/src/lin_conf.h">
+<persistable path="/app_lin_demo/src/lin_conf.h"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="README.rst" tooltip="module_lin/README.rst">
 <persistable path="/module_lin/README.rst"/>
 </file>
@@ -621,12 +633,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lin_serial.h" tooltip="module_lin/src/lin_serial.h">
 <persistable path="/module_lin/src/lin_serial.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lin_conf.h" tooltip="app_lin_demo/src/lin_conf.h">
-<persistable path="/app_lin_demo/src/lin_conf.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lin_conf_example.h" tooltip="module_lin/lin_conf_example.h">
-<persistable path="/module_lin/lin_conf_example.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xmos.cdt.ui.XCEditor" name="app_lin_demo.xc" tooltip="app_lin_demo/src/app_lin_demo.xc">
 <persistable path="/app_lin_demo/src/app_lin_demo.xc"/>
@@ -645,12 +651,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lin_rx_client.h" tooltip="module_lin/src/lin_rx_client.h">
 <persistable path="/module_lin/src/lin_rx_client.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name=".makefile" tooltip="module_lin/.makefile">
-<persistable path="/module_lin/.makefile"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xmos.cdt.ui.editors.makefile.AppLvlMakefileEditor" name="Makefile" tooltip="app_lin_demo/Makefile">
-<persistable path="/app_lin_demo/Makefile"/>
 </file>
 </mruList>
 </workbench>

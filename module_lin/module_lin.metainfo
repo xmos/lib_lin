@@ -50,7 +50,7 @@ configPoints =
     max = 38400,
     resourceUsageFlags = {"noeffect"},
     define = "LIN_BAUD_RATE",
-    default = 19200
+    default = 9600
   }
 }
 

@@ -3,7 +3,7 @@
 
 #include <xs1.h>
 
-#define LIN_BAUD_RATE 2400 //in bits per second
+#define LIN_BAUD_RATE 9600 //in bits per second
 #define LIN_BIT_TIME (XS1_TIMER_HZ / LIN_BAUD_RATE) //in timer ticks
 #if (LIN_BAUD_RATE > 38400 || LIN_BAUD_RATE < 2400) //Note rate is bounded by transceiver specification
 //#error Baud rate out of range. Please check lin_conf.h

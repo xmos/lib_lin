@@ -2,9 +2,8 @@
 #include <xscope.h>
 #include <print.h>
 
-#define ISBUS_NODE_COUNT 2	//Number of ISBUS slices connected.
+#define ISBUS_NODE_COUNT 1	//Number of ISBUS slices connected.
 							//Choose 1 for master only demo, 2 for master & slave
-
 #include "lin_conf.h"
 #include "lin_master.h"
 #if ISBUS_NODE_COUNT == 2
@@ -41,7 +40,11 @@ void master_application(chanend c_ma2s) {
 
   lin_master_init(p_master_txd, c_ma2s);              //Initialise TX pin (RX already done by rx_sever core)
   t :> next_frame_time;                               //Get current time
-  printstrln("Demo app started");
+#if ISBUS_NODE_COUNT == 2
+  printstrln("LIN bus master and slave, 2 x ISBUS slice, demo app started.");
+#else
+  printstrln("LIN bus master, 1 x ISBUS slice, demo app started.");
+#endif
 
   while(1){
     lin_make_random_frame(tx_frame, seed);            //Create data to send to slave
@@ -61,10 +64,10 @@ void master_application(chanend c_ma2s) {
     seed++;                                           //make sure the next random frame is different
 
     if (! compare_frames(rx_frame, tx_frame)){		  //Check to see the frame made the round trip
-      printstr("Sent     - ");
+      printstr("Sent buffer    - ");                        //If they are different, show tx and rx frames
       print_frame(tx_frame);
-      printstr("Received - ");
-      print_frame(rx_frame);
+      printstr("Receive buffer - ");
+      print_frame(rx_frame);                          //Note that rx frame is initialised to random
     }
 #endif
   }
@@ -98,7 +101,7 @@ void slave_application (chanend c_sa2s) {
 
 
 //Non-intrusive sniffer task to monitor rxd & txd for master and slave pin activity
-//Samples overlaid ports and sends to xScope and LEDs board to show activity
+//Samples overlaid ports and sends to xScope and LEDs on ISBUS boards to show activity
 on tile[1]: in port p_master_shadow = XS1_PORT_8A;
 on tile[1]: in port p_slave_shadow = XS1_PORT_8C;
 on tile[1]: out port p_led0_slave = XS1_PORT_1K;
@@ -114,7 +117,7 @@ void dso_led_app(){
   tmr :> time;
   while(1)
   {
-    time += LIN_BIT_TIME / 10; //oversample by x10. About the limit for xscope at 19.2Kbps LIN baud rate
+    time += LIN_BIT_TIME / 10; //oversample by x10. Limit for XScope at 19.2Kbps baud rate
     masterp = peek(p_master_shadow);
     slavep = peek(p_slave_shadow);
 #if USE_XSCOPE
