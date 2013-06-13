@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <xpd>
     <components>
-        <component description = "LIN Bus master and slave demonstration" type = "demoCode" scope = "Example" path = "app_lin_demo" local = "false" id = "app_lin_demo" name = "LIN Bus Master/Slave Loopback demo">
+        <component description = "LIN Bus demonstration application" type = "demoCode" scope = "Example" path = "app_lin_demo" local = "false" id = "app_lin_demo" name = "LIN Bus Master/Slave Loopback demo">
             <board>XP-SKC-L2 XA-SK-ISBUS</board>
             <componentDependency>module_lin</componentDependency>
             <keyword>LIN master slave uart</keyword>
@@ -18,7 +18,8 @@
     <partnumber>XM-003013-DH</partnumber>
     <release parenthash = "80c867ae2a67fcc2c433adc35f81649fe8e0f11d" version = "1.0.0alpha0" githash = "a3c31955aa594320315881ffb68a73093f188041"></release>
     <release parenthash = "04532f98ba98513418857bd07060fea8bce03ce6" version = "1.0.0alpha1" githash = "5bbf168175dc51a28a5eb684f994c91830739dff"></release>
-    <release parenthash = "9e46a17907df6f7e395d6d2e37b8bdae32bbb43d" version = "1.0.0alpha2"></release>
+    <release parenthash = "9e46a17907df6f7e395d6d2e37b8bdae32bbb43d" version = "1.0.0alpha2" githash = "cd054b34e21225879de13c76c0f4270897f626a3"></release>
+    <release parenthash = "6422e5f5c1e19e759b057bb7a8672d64f280320c" version = "1.0.0alpha3"></release>
     <subpartnumber>XM-003014-SM</subpartnumber>
     <vendor>XMOS</vendor>
     <xpd_version>1.0</xpd_version>
