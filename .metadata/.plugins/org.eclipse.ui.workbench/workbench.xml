@@ -94,8 +94,7 @@
 <view id="com.xmos.xsoftip.ui.views.howto.HowToView" partName="HowTo Browser"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Errors (1 item)"/>
+<expanded>&#x0A;<category IMemento.internal.id="Errors (1 item)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -153,9 +152,9 @@
 <hide_menu_item_id id="org.eclipse.cdt.ui.prjmenu"/>
 <hide_toolbar_item_id id="org.eclipse.ui.file.print"/>
 <hide_toolbar_item_id id="org.eclipse.search.searchActionSet"/>
-<hide_toolbar_item_id id="newWizardDropDown"/>
-<hide_toolbar_item_id id="org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<hide_toolbar_item_id id="org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar"/>
+<hide_toolbar_item_id id="newWizardDropDown"/>
 <hide_toolbar_item_id id="org.eclipse.cdt.ui.buildConfigToolbarAction"/>
 <view id="org.eclipse.ui.navigator.ProjectExplorer"/>
 <view id="com.xmos.xsoftip.ui.views.xsoftip.XSoftIPView"/>
@@ -367,37 +366,24 @@
 <view id="com.xmos.systembuilder.ui.views.systembuilder.SystemBuilder"/>
 <view id="com.xmos.devcolumn.ui.views.devcolumn.DevColumn"/>
 <fastViewBars/>
-<layout>
-<mainWindow>
-<info folder="true" part="left">
-<folder activePageID="com.xmos.xsoftip.ui.views.xsoftip.XSoftIPView" appearance="2" expanded="2">
-<page content="com.xmos.xsoftip.ui.views.xsoftip.XSoftIPView" label="xSOFTip Browser"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="left">&#x0A;<folder activePageID="com.xmos.xsoftip.ui.views.xsoftip.XSoftIPView" appearance="2" expanded="2">&#x0A;<page content="com.xmos.xsoftip.ui.views.xsoftip.XSoftIPView" label="xSOFTip Browser"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.74950165" ratioLeft="1128" ratioRight="377" relationship="2" relative="left">
-<folder appearance="2" expanded="2">
-<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.74950165" ratioLeft="1128" ratioRight="377" relationship="2" relative="left">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.24983388" ratioLeft="376" ratioRight="1129" relationship="2" relative="left"/>
-<info folder="true" part="middle" ratio="0.24977857" ratioLeft="282" ratioRight="847" relationship="2" relative="org.eclipse.ui.editorss">
-<folder activePageID="com.xmos.systembuilder.ui.views.systembuilder.SystemBuilder" appearance="2" expanded="2">
-<page content="com.xmos.systembuilder.ui.views.systembuilder.SystemBuilder" label="My System"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<info folder="true" part="middle" ratio="0.24977857" ratioLeft="282" ratioRight="847" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="com.xmos.systembuilder.ui.views.systembuilder.SystemBuilder" appearance="2" expanded="2">&#x0A;<page content="com.xmos.systembuilder.ui.views.systembuilder.SystemBuilder" label="My System"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="right" ratio="0.49940968" ratioLeft="423" ratioRight="424" relationship="2" relative="middle">
-<folder activePageID="com.xmos.devcolumn.ui.views.devcolumn.DevColumn" appearance="2" expanded="2">
-<page content="com.xmos.devcolumn.ui.views.devcolumn.DevColumn" label="Developer Column"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<info folder="true" part="right" ratio="0.49940968" ratioLeft="423" ratioRight="424" relationship="2" relative="middle">&#x0A;<folder activePageID="com.xmos.devcolumn.ui.views.devcolumn.DevColumn" appearance="2" expanded="2">&#x0A;<page content="com.xmos.devcolumn.ui.views.devcolumn.DevColumn" label="Developer Column"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
@@ -588,14 +574,6 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
-<trimArea IMemento.internal.id="16384">
-<trimItem IMemento.internal.id="topLeft"/>
-<trimItem IMemento.internal.id="bottomLeft"/>
-</trimArea>
-<trimArea IMemento.internal.id="131072">
-<trimItem IMemento.internal.id="bottom"/>
-<trimItem IMemento.internal.id="topRight"/>
-</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 </trimArea>
