@@ -4,11 +4,6 @@
 xmake CONFIG=Debug all 
 Creating dependencies for app_lin_demo.xc
 Compiling app_lin_demo.xc
-Compiling lin_master.xc
-Compiling lin_rx_client.xc
-Compiling lin_serial.xc
-Compiling lin_slave.xc
-Compiling lin_utils.xc
 Using modules: module_lin
 Creating app_lin_demo_Debug.xe
 Build Complete

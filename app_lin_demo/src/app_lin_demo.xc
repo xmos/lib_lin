@@ -2,7 +2,7 @@
 #include <xscope.h>
 #include <print.h>
 
-#define ISBUS_NODE_COUNT 1	//Number of ISBUS slices connected.
+#define ISBUS_NODE_COUNT 2	//Number of ISBUS slices connected.
 							//Choose 1 for master only demo, 2 for master & slave
 #include "lin_conf.h"
 #include "lin_master.h"
@@ -28,7 +28,7 @@ void xscope_user_init(void) {
 #endif
 
 
-void master_application(chanend c_ma2s) {
+void master_application(out port p_txd, chanend c_ma2s) {
 
   lin_frame_t tx_frame;                               //Declare a lin frame for tx
 #if ISBUS_NODE_COUNT == 2
@@ -38,7 +38,7 @@ void master_application(chanend c_ma2s) {
   int next_frame_time;
   timer t;
 
-  lin_master_init(p_master_txd, c_ma2s);              //Initialise TX pin (RX already done by rx_sever core)
+  lin_master_init(p_txd, c_ma2s);                     //Initialise TX pin (RX already done by rx_sever core)
   t :> next_frame_time;                               //Get current time
 #if ISBUS_NODE_COUNT == 2
   printstrln("LIN bus master and slave, 2 x ISBUS slice, demo app started.");
@@ -51,7 +51,7 @@ void master_application(chanend c_ma2s) {
     tx_frame.id = 0x19;                               //Set ID to instruct slave to receive data
 
     t when timerafter(next_frame_time) :> void;       //wait for next slot
-    print_master_error(lin_master_send_frame(tx_frame, p_master_txd, c_ma2s));//send frame to slave and print if error
+    print_master_error(lin_master_send_frame(tx_frame, p_txd, c_ma2s));//send frame to slave and print if error
     next_frame_time += 25000000;                      //Add 250ms
 
 #if ISBUS_NODE_COUNT == 2
@@ -59,12 +59,12 @@ void master_application(chanend c_ma2s) {
     rx_frame.id = 0x24;                               //Set ID to instruct slave to send repsonse
 
     t when timerafter(next_frame_time) :> void;       //wait for next slot
-    print_master_error(lin_master_request_frame(rx_frame, p_master_txd, c_ma2s)); //get response from slave and print if error
+    print_master_error(lin_master_request_frame(rx_frame, p_txd, c_ma2s)); //get response from slave and print if error
     next_frame_time += 25000000;                      //Add 250ms
     seed++;                                           //make sure the next random frame is different
 
     if (! compare_frames(rx_frame, tx_frame)){		  //Check to see the frame made the round trip
-      printstr("Sent buffer    - ");                        //If they are different, show tx and rx frames
+      printstr("Sent buffer    - ");                  //If they are different, show tx and rx frames
       print_frame(tx_frame);
       printstr("Receive buffer - ");
       print_frame(rx_frame);                          //Note that rx frame is initialised to random
@@ -74,13 +74,13 @@ void master_application(chanend c_ma2s) {
 }
 
 #if ISBUS_NODE_COUNT == 2
-void slave_application (chanend c_sa2s) {
+void slave_application (out port p_txd, chanend c_sa2s) {
   unsigned char id;
   lin_frame_t slave_frame;                                          //Declare a lin frame
   unsigned int seed = 0x33357406;                                   //random number seed
 
   lin_make_random_frame(slave_frame, seed);                         //Initialise frame with random contents
-  lin_slave_init(p_slave_txd, c_sa2s);                              //Initialise slave tx port and rx server
+  lin_slave_init(p_txd, c_sa2s);                                    //Initialise slave tx port and rx server
 
   while(1){
     print_slave_error(lin_slave_wait_for_header(c_sa2s, id));       //Wait until header receieved and get id
@@ -92,7 +92,7 @@ void slave_application (chanend c_sa2s) {
       break;
 
     case 0x24:                                                      //0x24 means transmit data
-      print_slave_error(lin_slave_send_response(p_slave_txd, c_sa2s, slave_frame));//Send it back to master
+      print_slave_error(lin_slave_send_response(p_txd, c_sa2s, slave_frame));//Send it back to master
       break;
     }
   }
@@ -101,7 +101,7 @@ void slave_application (chanend c_sa2s) {
 
 
 //Non-intrusive sniffer task to monitor rxd & txd for master and slave pin activity
-//Samples overlaid ports and sends to xScope and LEDs on ISBUS boards to show activity
+//Samples overlaid ports and sends to XScope and LEDs on ISBUS boards to show activity
 on tile[1]: in port p_master_shadow = XS1_PORT_8A;
 on tile[1]: in port p_slave_shadow = XS1_PORT_8C;
 on tile[1]: out port p_led0_slave = XS1_PORT_1K;
@@ -118,10 +118,10 @@ void dso_led_app(){
   while(1)
   {
     time += LIN_BIT_TIME / 10; //oversample by x10. Limit for XScope at 19.2Kbps baud rate
-    masterp = peek(p_master_shadow);
+    masterp = peek(p_master_shadow);		//Read the master's port (8b port includes txd & rxd)
     slavep = peek(p_slave_shadow);
 #if USE_XSCOPE
-    xscope_int(0, masterp);
+    xscope_int(0, masterp);					//Send data to xscope
 #endif
     if (masterp & 0x04) p_led0_master <: 1;	//Poll txd and rxd activity pins and echo to LEDs
     else p_led0_master <: 0;
@@ -144,10 +144,10 @@ int main() {
   chan c_sa2s;
 #endif
   par {
-    on tile[1]: master_application(c_ma2s);
+    on tile[1]: master_application(p_master_txd, c_ma2s);
     on tile[1]: lin_rx_server(p_master_rxd, c_ma2s);
 #if ISBUS_NODE_COUNT == 2
-    on tile[1]: slave_application(c_sa2s);
+    on tile[1]: slave_application(p_slave_txd, c_sa2s);
     on tile[1]: lin_rx_server(p_slave_rxd, c_sa2s);
 #endif
     on tile[1]: dso_led_app();

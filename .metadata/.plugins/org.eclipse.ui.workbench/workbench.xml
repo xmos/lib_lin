@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="33" version="2.0">
 <workbenchAdvisor/>
-<window height="878" width="1399" x="185" y="64">
+<window height="878" width="1399" x="281" y="77">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -40,7 +40,7 @@
 </editorArea>
 <editor activePart="true" focus="true" id="com.xmos.cdt.ui.XCEditor" name="app_lin_demo.xc" partName="app_lin_demo.xc" path="/Users/Ed/apps/sc_lin/app_lin_demo/src/app_lin_demo.xc" title="app_lin_demo.xc" tooltip="app_lin_demo/src/app_lin_demo.xc" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/app_lin_demo/src/app_lin_demo.xc"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1607" selectionTopPixel="546"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4773" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -189,7 +189,7 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.21105193" ratioLeft="317" ratioRight="1185" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottom" ratio="0.7185567" ratioLeft="697" ratioRight="273" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="bottom" ratio="0.7329114" ratioLeft="579" ratioRight="211" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
@@ -418,9 +418,6 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/module_lin/module_description"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/module_lin/src/lin_serial.h"/>
 </editors>
-<item historyLabel="lin_master.h" index="2">
-<position info="not_deleted" x="426" y="1619"/>
-</item>
 <item historyLabel="lin_slave.h" index="1">
 <position info="not_deleted" x="1294" y="0"/>
 </item>
@@ -565,8 +562,11 @@
 <item historyLabel="app_lin_demo.xc" index="13">
 <position info="not_deleted" x="185" y="0"/>
 </item>
-<item active="true" historyLabel="app_lin_demo.xc" index="13">
+<item historyLabel="app_lin_demo.xc" index="13">
 <position info="not_deleted" x="1422" y="2"/>
+</item>
+<item active="true" historyLabel="app_lin_demo.xc" index="13">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -585,6 +585,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xmos.cdt.ui.XCEditor" name="app_lin_demo.xc" tooltip="app_lin_demo/src/app_lin_demo.xc">
+<persistable path="/app_lin_demo/src/app_lin_demo.xc"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="README.rst" tooltip="app_lin_demo/README.rst">
 <persistable path="/app_lin_demo/README.rst"/>
 </file>
@@ -611,9 +614,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lin_serial.h" tooltip="module_lin/src/lin_serial.h">
 <persistable path="/module_lin/src/lin_serial.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xmos.cdt.ui.XCEditor" name="app_lin_demo.xc" tooltip="app_lin_demo/src/app_lin_demo.xc">
-<persistable path="/app_lin_demo/src/app_lin_demo.xc"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lin_slave.h" tooltip="module_lin/src/lin_slave.h">
 <persistable path="/module_lin/src/lin_slave.h"/>
