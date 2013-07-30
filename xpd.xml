@@ -5,12 +5,10 @@
             <board>XP-SKC-L2 XA-SK-ISBUS</board>
             <componentDependency>module_lin</componentDependency>
             <keyword>LIN master slave uart</keyword>
-            <docdir>app_lin_demo/doc</docdir>
         </component>
         <component name = "LIN Bus Module" type = "component" buildresults_path = "module_lin/.module_lin.buildinfo" scope = "Early Development" path = "module_lin" metainfo_path = "module_lin/module_lin.metainfo" local = "false" id = "module_lin" description = "LIN Bus master and slave component">
             <board>XP-SKC-L2 XA-SK-ISBUS</board>
             <keyword>LIN master slave uart bus automotive industrial</keyword>
-            <docdir>module_lin/doc</docdir>
         </component>
     </components>
     <description>LIN master and slave software components</description>
@@ -25,7 +23,8 @@
     <release parenthash = "1ddb9adf4dec83a987f815951083c1e19a427310" version = "1.0.0alpha4" githash = "443ad50cc9455b46677010be6049c03d9100f8a1"></release>
     <release parenthash = "7d1ecaff42b17f9fc1529b04c7452d45efaf7e82" version = "1.0.0alpha5" githash = "de531c3ab1c0641266fda82f3b9b4b3cac40a5fa"></release>
     <release parenthash = "362ab453b24321ff277bb8918ce0277dd1c4d638" version = "1.0.0alpha6" githash = "885548e50b4c7900557022853e450d51ce029c2d"></release>
-    <release parenthash = "885548e50b4c7900557022853e450d51ce029c2d" version = "1.0.0beta0"></release>
+    <release parenthash = "885548e50b4c7900557022853e450d51ce029c2d" version = "1.0.0beta0" githash = "a6f3942664adf64f60f644fc710491e6983d7b29"></release>
+    <release parenthash = "4ad54f7615b57871d08a8da5a6de1845e2c08672" version = "1.0.0beta1"></release>
     <subpartnumber>XM-003014-SM</subpartnumber>
     <vendor>XMOS</vendor>
     <xpd_version>1.0</xpd_version>

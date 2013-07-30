@@ -2,7 +2,7 @@
 sc_lin
 ............
 
-:Latest release: 1.0.0beta0
+:Latest release: 1.0.0beta1
 :Maintainer: XMOS
 :Description: LIN master and slave software components
 
@@ -19,7 +19,6 @@ Key Features
 * 2400 to 115200 baud operation (limited by physical layer)
 * Integrated frame processing with simple application API
 * Single logical core per LIN node (either slave or master)
-
 
 Firmware Overview
 =================
