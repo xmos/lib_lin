@@ -20,6 +20,7 @@
     <release parenthash = "04532f98ba98513418857bd07060fea8bce03ce6" version = "1.0.0alpha1" githash = "5bbf168175dc51a28a5eb684f994c91830739dff"></release>
     <release parenthash = "9e46a17907df6f7e395d6d2e37b8bdae32bbb43d" version = "1.0.0alpha2" githash = "cd054b34e21225879de13c76c0f4270897f626a3"></release>
     <release parenthash = "6422e5f5c1e19e759b057bb7a8672d64f280320c" version = "1.0.0alpha3" githash = "67a88796ff8d943d09700adf63a0396bdbcf7598"></release>
+    <release parenthash = "1ddb9adf4dec83a987f815951083c1e19a427310" version = "1.0.0alpha4"></release>
     <subpartnumber>XM-003014-SM</subpartnumber>
     <vendor>XMOS</vendor>
     <xpd_version>1.0</xpd_version>
