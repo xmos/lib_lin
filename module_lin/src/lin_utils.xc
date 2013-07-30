@@ -100,6 +100,23 @@ void print_master_error(lin_slave_error_t master_err){
   }
 }
 
+void print_frame(lin_frame_t resp){
+  int c;
+  printstr("Frame ID = ");
+  printhex(resp.id);
+  printstr(", len = ");
+  printhex(resp.length);
+  printstr(",  d[0..");
+  printhex(resp.length-1);
+  printstr("] = ");
+  for (c=0; c<resp.length; c++){
+    printhex(resp.data[c]);
+    printstr(", ");
+  }
+  printstr("chk = ");
+  printhexln(resp.checksum);
+}
+
 int compare_frames(lin_frame_t frame_a, lin_frame_t frame_b){
   int same = 1;
   if (frame_a.length != frame_b.length) same = 0;
