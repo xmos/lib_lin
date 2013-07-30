@@ -35,7 +35,8 @@ void master_application(out port p_txd, chanend c_ma2s) {
   lin_frame_t rx_frame;                               //Declare a lin frame for rx
 #endif
   unsigned int seed = 0x55378008;                     //random number seed
-  int next_frame_time;
+  lin_slave_error_t msg_error;                        //error code from frame transfer
+  int next_frame_time, done_once = 0;
   timer t;
 
   lin_master_init(p_txd, c_ma2s);                     //Initialise TX pin (RX already done by rx_sever core)
@@ -51,7 +52,12 @@ void master_application(out port p_txd, chanend c_ma2s) {
     tx_frame.id = 0x19;                               //Set ID to instruct slave to receive data
 
     t when timerafter(next_frame_time) :> void;       //wait for next slot
-    print_master_error(lin_master_send_frame(tx_frame, p_txd, c_ma2s));//send frame to slave and print if error
+    msg_error = lin_master_send_frame(tx_frame, p_txd, c_ma2s); //Send frame
+    print_master_error(msg_error);                    //Print if error
+    if ((msg_error == LIN_SUCCESS) && !done_once){
+      printstrln("First master frame sent with no payload errors detected");
+    }
+    done_once = 1;
     next_frame_time += 25000000;                      //Add 250ms
 
 #if ISBUS_NODE_COUNT == 2
