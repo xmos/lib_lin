@@ -2,7 +2,7 @@
 #include <xscope.h>
 #include <print.h>
 
-#define ISBUS_NODE_COUNT 1	//Number of ISBUS slices connected.
+#define ISBUS_NODE_COUNT 2	//Number of ISBUS slices connected.
 							              //Choose 1 for master only demo, 2 for master & slave
 #include "lin_conf.h"
 #include "lin_master.h"
