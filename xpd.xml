@@ -5,10 +5,12 @@
             <board>XP-SKC-L2 XA-SK-ISBUS</board>
             <componentDependency>module_lin</componentDependency>
             <keyword>LIN master slave uart</keyword>
+            <docdir>app_lin_demo/doc</docdir>
         </component>
         <component name = "LIN Bus Module" type = "component" buildresults_path = "module_lin/.module_lin.buildinfo" scope = "Early Development" path = "module_lin" metainfo_path = "module_lin/module_lin.metainfo" local = "false" id = "module_lin" description = "LIN Bus master and slave component">
             <board>XP-SKC-L2 XA-SK-ISBUS</board>
             <keyword>LIN master slave uart bus automotive industrial</keyword>
+            <docdir>module_lin/doc</docdir>
         </component>
     </components>
     <description>LIN master and slave software components</description>

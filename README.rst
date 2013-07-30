@@ -18,12 +18,8 @@ Key Features
 * LIN 2.1 master and slave protocol components
 * 2400 to 115200 baud operation (limited by physical layer)
 * Integrated frame processing with simple application API
-* Single logical core per slave receive function
+* Single logical core per LIN node (either slave or master)
 
-To Do
-=====
-
-* Break detection mid data transfer
 
 Firmware Overview
 =================

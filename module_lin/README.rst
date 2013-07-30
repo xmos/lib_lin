@@ -17,7 +17,7 @@ Key Features
    * 2400 to 115200 baud operation (limited by physical layer to 38400)
    * Timeout and break detection
    * Integrated frame processing with simple application API
-   * Single logical core usage per serial receive function
+   * Single logical core usage per LIN node
 
 
 Known Issues

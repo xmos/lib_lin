@@ -24,8 +24,6 @@ typedef enum {
 } lin_serial_rx_command_t;
 
 
-void lin_tx_port_init(out port txd);
-
 /**
  * Send a break. This function will block until all bits have been transmitted
  * References lin_conf.h for length of break
@@ -48,7 +46,9 @@ void lin_tx_byte(out port txd, unsigned char tx_byte);
 /**
  * This is the serial rx server. Runs in it's own core and continuously looks
  * for bytes/break symbols. Communication is over channels to client functions
- * contained in lin_rx_client
+ * contained within lin_rx_client.
+ * This function must be run in it's own core (within scope of a par).
+ * One rx_server is required per node, either master or slave.
  *
  * /param rxd is the receieve port on which to listen for lin frames
  * /param c_a2rx is the channel over which the client communicates with the sever
