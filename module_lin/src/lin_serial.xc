@@ -26,7 +26,7 @@ static unsigned int unformat_rx_byte (unsigned int rx)
 }
 
 
-//Uart Tx. Send up to a 32 bit serial word LSB first.
+//Uart Tx. Send up to a 32 bit serial word, LSB first.
 //This function requires you to add start/stop bits to the Tx frame
 static void lin_tx_raw(out port txd, unsigned int tx_word, int n_bits)
 {

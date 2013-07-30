@@ -100,24 +100,6 @@ void print_master_error(lin_slave_error_t master_err){
   }
 }
 
-#define PAUSE for(int i=0; i<8; i++); //Hack to stop things getting reordered in xscope debug print console
-void print_frame(lin_frame_t resp){
-  int c;
-  printstr("Frame ID = ");
-  printhex(resp.id); PAUSE
-  printstr(", len = "); PAUSE
-  printhex(resp.length); PAUSE
-  printstr(",  d[0.."); PAUSE
-  printhex(resp.length-1); PAUSE
-  printstr("] = "); PAUSE
-  for (c=0;c<resp.length;c++){
-    printhex(resp.data[c]); PAUSE
-    printstr(", "); PAUSE
-  }
-  printstr("chk = "); PAUSE
-  printhexln(resp.checksum); PAUSE
-}
-
 int compare_frames(lin_frame_t frame_a, lin_frame_t frame_b){
   int same = 1;
   if (frame_a.length != frame_b.length) same = 0;

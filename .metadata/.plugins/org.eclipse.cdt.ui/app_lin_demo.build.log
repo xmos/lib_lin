@@ -1,9 +1,0 @@
-
-**** Build of configuration Debug for project app_lin_demo ****
-
-xmake CONFIG=Debug all 
-Creating dependencies for app_lin_demo.xc
-Compiling app_lin_demo.xc
-Using modules: module_lin
-Creating app_lin_demo_Debug.xe
-Build Complete
