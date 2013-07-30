@@ -20,7 +20,7 @@ Demonstration Applications
 LIN Bus Demo Application
 ++++++++++++++++++++++++
 
-This application demonstrates how the module is used to transmit and receive LIN Bus frames and is available within xSOFTip Explorer. It supports either a master or master and slave.
+This application demonstrates how the module is used to transmit and receive LIN frames and is available within xSOFTip Explorer. It supports either a single node (master only) or dual nodes (master and slave) running concurrently on the same multi-core device.
 
    * Package: sc_lin
    * Application: app_lin_demo
