@@ -20,10 +20,10 @@ To setup up the system demonstrating the LIN master, using one ISBUS slice:
 
    #. Connect XA-SK-ISBUS sliceCARD to the sliceKIT Core board using the connector marked with the ``SQUARE``.
    #. Ensure jumpers are fitted to the ISBUS slice as follows. Header P3 connected between 1 & 2 (provides 5V to LIN bus VBAT). Header P4 connected between 1 & 2 (master pull up resistor & diode enabled).
-   #. Connect the xTAG Adapter to Slicekit core board, and connect xTAG-2 to the Adapter. 
+   #. Connect the xTAG Adapter to Core Board, and connect xTAG-2 to the Adapter. 
    #. Set the ``XMOS LINK`` to ``ON`` on the xTAG Adapter. This enables the debug XMOS Link and allows xSCOPE functionality.
    #. Connect the xTAG-2 to host workstation, optionally using a USB extension cable shown (not provided with the sliceKIT starter kit).
-   #. Switch on the power supply to the Slicekit Core board.
+   #. Switch on the power supply to the Core board.
 
 .. figure:: images/hardware_setup_single.*
    :width: 75mm
@@ -52,10 +52,10 @@ Note that the Developer Column in the xTIMEcomposer on the right hand side of yo
 Run the Application
 +++++++++++++++++++
 
-Now that the application has been compiled, the next step is to run it on the Slicekit Core Board using the tools to load the application over JTAG (via the XTAG2 and XTAG Adapter card) into the xCORE multicore microcontroller.
+Now that the application has been compiled, the next step is to run it on the sliceKIT Core Board using the tools to load the application over JTAG (via the xTAG2 and xTAG Adapter card) into the xCORE multicore microcontroller.
 
    #. Select the file ``app_lin_demo.xc`` in the ``app_lin_demo`` project from the Project Explorer. This resides in the /src directory.
-   #. From the ``Run`` pull down menu, select ``Run Configurations``. In the left hand pane of the run configurations dialogue, you will see the ``xCORE Application``. Double click (or right click-new) ``xCORE Application``. You will see the ``Main`` tab of the right hand pane containing target options. Ensure that ``hardware`` is selected from the Device options box. If you only see ``Simulator`` as the available target then please check to ensure the XTAG-2 debug adapter is properly connected to your host workstation. Next choose ``Run XScope output server`` from the I/O options selection near the bottom. This will enable collection of fast debug print lines from the application.
+   #. From the ``Run`` pull down menu, select ``Run Configurations``. In the left hand pane of the run configurations dialogue, you will see the ``xCORE Application``. Double click (or right click-new) ``xCORE Application``. You will see the ``Main`` tab of the right hand pane containing target options. Ensure that ``hardware`` is selected from the Device options box. If you only see ``Simulator`` as the available target then please check to ensure the xTAG-2 debug adapter is properly connected to your host workstation. Next choose ``Run xSCOPE output server`` from the I/O options selection near the bottom. This will enable collection of fast debug print lines from the application.
    #. Now run the application by clicking on the ``Run`` button at the bottom right. When the application is running, click on the ``Console`` tab a the bottom of xTIMEcomposer.
    #. You should see the text ``LIN bus master, 1 x ISBUS slice, demo app started.`` in the console window and the LEDs on the ISBUS slice should be flashing briefly every 250ms. This indicates activity on the UART pins that are connected to the transceiver.  
   
@@ -74,7 +74,7 @@ xTIMEcomposer includes xSCOPE, a tool for instrumenting your program with real-t
 
    Real-time xSCOPE display from LIN master
 
-For further details about real-time, in circuit debugging with XScope, please refer to `xTIMEcomposer User Guide
+For further details about real-time, in circuit debugging with xSCOPE, please refer to `xTIMEcomposer User Guide
 <http://www.xmos.com/trace-data-xscope-0/>`_.  
    
 Next Steps
@@ -109,7 +109,7 @@ The demonstration is designed to work with one or two LIN nodes. If a second ISB
 To setup up the system for  two ISBUS sliceCARDs:
 
    #. Setup the system as above for the single ISBUS demonstration.
-   #. Add a second ISBUS sliceCARD to the XP-SKC-L16 Slicekit core board using the connector marked with the ``CIRCLE``.
+   #. Add a second ISBUS sliceCARD to the core board using the connector marked with the ``CIRCLE``.
    #. Ensure a jumper is fitted to the second ISBUS sliceCARD on header P3, connected between 1 & 2 (provides 5V to LIN bus VBAT).
    #. Connect a flying lead between pin 4 of P6 of both ISBUS sliceCARDs. This connects the LIN bus data line between the two nodes.
    #. Ensure that the application is set to build for 2 ISBUS sliceCARDs. To do this, modify line 5 of app_lin_demo.xc to:: ``#define ISBUS_NODE_COUNT 2``
