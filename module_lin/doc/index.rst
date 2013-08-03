@@ -1,5 +1,5 @@
-XMOS LIN Bus Component
-======================
+LIN Bus Component
+=================
 
 .. toctree::
 

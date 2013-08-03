@@ -21,7 +21,7 @@ To setup up the system demonstrating the LIN master, using one ISBUS slice:
    #. Connect XA-SK-ISBUS sliceCARD to the sliceKIT Core board using the connector marked with the ``SQUARE``.
    #. Ensure jumpers are fitted to the ISBUS slice as follows. Header P3 connected between 1 & 2 (provides 5V to LIN bus VBAT). Header P4 connected between 1 & 2 (master pull up resistor & diode enabled).
    #. Connect the xTAG Adapter to Core Board, and connect xTAG-2 to the Adapter. 
-   #. Set the ``XMOS LINK`` to ``ON`` on the xTAG Adapter. This enables the debug XMOS Link and allows xSCOPE functionality.
+   #. Set the ``xCONNECT Link`` to ``ON`` on the xTAG Adapter. This enables the debug xCONNECT Link and allows xSCOPE functionality.
    #. Connect the xTAG-2 to host workstation, optionally using a USB extension cable shown (not provided with the sliceKIT starter kit).
    #. Switch on the power supply to the Core board.
 
