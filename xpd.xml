@@ -19,6 +19,8 @@
     <maintainer>XMOS</maintainer>
     <partnumber>XM-003610-DH</partnumber>
     <subpartnumber>XM-003611-SM</subpartnumber>
+    <docdir>module_lin/doc</docdir>
+    <docdir>app_lin_demo/doc</docdir>
     <vendor>XMOS</vendor>
     <xpd_version>1.0</xpd_version>
 </xpd>
