@@ -1,3 +1,5 @@
+sc_lin Change Log
+=================
 LIN bus component Changelog
 ===========================
 
