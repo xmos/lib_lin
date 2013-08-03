@@ -1,13 +1,13 @@
-
-LIN Bus Module
-==============
+LIN Bus Component
+=================
 
 :scope: Early Development
-:description: LIN Bus master and slave component
-:keywords: LIN master slave uart bus automotive industrial
-:boards: XP-SKC-L2 XA-SK-ISBUS 
+:description: LIN Bus master and slave components
+:keywords: LIN
+:boards: XP-SKC-L16, XA-SK-ISBUS 
 
 The LIN components include master and slave peripherals. Master component automatically includes slave functionality. 50MIPS is required for the baud rate of 115Kbps. Connects directly to LIN transceiver using Rxd and Txd pins.
+
 Each LIN node uses a client server architecture where the server consists of a custom UART receive function, extended with timeout and break detect features required for LIN. The UART receive client C functions are exposed via an API, which are further abstracted by simple LIN master/slave send/receive APIs.
 
 Key Features
@@ -18,7 +18,6 @@ Key Features
    * Timeout and break detection
    * Integrated frame processing with simple application API
    * Single logical core usage per LIN node
-
 
 Known Issues
 ------------
