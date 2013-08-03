@@ -14,13 +14,14 @@
         </component>
     </components>
     <description>foo</description>
+    <docdir>module_lin/doc</docdir>
+    <docdir>app_lin_demo/doc</docdir>
     <location>git://git/apps/sc_lin.git</location>
     <name>sc_lin</name>
     <maintainer>XMOS</maintainer>
     <partnumber>XM-003610-DH</partnumber>
+    <release parenthash = "e7929834d10a89ce7bd8c9a84f36af8a67e60b6d" version = "1.0.1beta0"></release>
     <subpartnumber>XM-003611-SM</subpartnumber>
-    <docdir>module_lin/doc</docdir>
-    <docdir>app_lin_demo/doc</docdir>
     <vendor>XMOS</vendor>
     <xpd_version>1.0</xpd_version>
 </xpd>
