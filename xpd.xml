@@ -1,22 +1,12 @@
 <?xml version="1.0" ?>
 <xpd>
-    <components>
-        <component description = "LIN Bus demonstration application" type = "demoCode" scope = "Example" path = "app_lin_demo" local = "false" id = "app_lin_demo" name = "LIN Bus Master/Slave Loopback demo">
-            <board>XP-SKC-L2 XA-SK-ISBUS</board>
-            <componentDependency>module_lin</componentDependency>
-            <keyword>LIN master slave uart</keyword>
-        </component>
-        <component name = "LIN Bus Module" type = "component" buildresults_path = "module_lin/.module_lin.buildinfo" scope = "Early Development" path = "module_lin" metainfo_path = "module_lin/module_lin.metainfo" local = "false" id = "module_lin" description = "LIN Bus master and slave component">
-            <board>XP-SKC-L2 XA-SK-ISBUS</board>
-            <keyword>LIN master slave uart bus automotive industrial</keyword>
-        </component>
-    </components>
+    <components></components>
     <description>LIN master and slave software components</description>
+    <docdir>app_lin_demo</docdir>
+    <docdir>module_lin</docdir>
     <location>git://git/apps/sc_lin.git</location>
     <name>sc_lin</name>
     <maintainer>XMOS</maintainer>
-	<docdir>app_lin_demo</docdir>
-	<docdir>module_lin</docdir>
     <partnumber>XM-003013-DH</partnumber>
     <release parenthash = "80c867ae2a67fcc2c433adc35f81649fe8e0f11d" version = "1.0.0alpha0" githash = "a3c31955aa594320315881ffb68a73093f188041"></release>
     <release parenthash = "04532f98ba98513418857bd07060fea8bce03ce6" version = "1.0.0alpha1" githash = "5bbf168175dc51a28a5eb684f994c91830739dff"></release>
@@ -26,7 +16,8 @@
     <release parenthash = "7d1ecaff42b17f9fc1529b04c7452d45efaf7e82" version = "1.0.0alpha5" githash = "de531c3ab1c0641266fda82f3b9b4b3cac40a5fa"></release>
     <release parenthash = "362ab453b24321ff277bb8918ce0277dd1c4d638" version = "1.0.0alpha6" githash = "885548e50b4c7900557022853e450d51ce029c2d"></release>
     <release parenthash = "885548e50b4c7900557022853e450d51ce029c2d" version = "1.0.0beta0" githash = "a6f3942664adf64f60f644fc710491e6983d7b29"></release>
-    <release parenthash = "4ad54f7615b57871d08a8da5a6de1845e2c08672" version = "1.0.0beta1"></release>
+    <release parenthash = "4ad54f7615b57871d08a8da5a6de1845e2c08672" version = "1.0.0beta1" githash = "8f5279f025a84c9409d292fce72c6d13cf2d321a"></release>
+    <release parenthash = "7deb343167d2e15662b09bdf2b9094c11e6204b3" version = "1.0.0beta2"></release>
     <subpartnumber>XM-003014-SM</subpartnumber>
     <vendor>XMOS</vendor>
     <xpd_version>1.0</xpd_version>
