@@ -20,8 +20,10 @@
     <name>sc_lin</name>
     <maintainer>XMOS</maintainer>
     <partnumber>XM-003610-DH</partnumber>
-    <release parenthash = "e7929834d10a89ce7bd8c9a84f36af8a67e60b6d" version = "1.0.1beta0"></release>
+    <release parenthash = "e7929834d10a89ce7bd8c9a84f36af8a67e60b6d" version = "1.0.1beta0" githash = "d21faa0ff5746946fec96b739b7c2866d008362a"></release>
+    <release parenthash = "6f4aa20078d5f4d7f5000aeb2af7480de3b1c04f" version = "1.0.1beta1"></release>
     <subpartnumber>XM-003611-SM</subpartnumber>
     <vendor>XMOS</vendor>
+    <version_defines></version_defines>
     <xpd_version>1.0</xpd_version>
 </xpd>
