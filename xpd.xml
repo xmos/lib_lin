@@ -2,30 +2,26 @@
 <xpd>
     <components>
         <component description = "LIN Bus demonstration application" type = "demoCode" scope = "Example" path = "app_lin_demo" local = "false" id = "app_lin_demo" name = "LIN Bus Master/Slave Loopback demo">
-            <board>XP-SKC-L2 XA-SK-ISBUS</board>
+            <board>XP-SKC-L16</board>
+            <board>XA-SK-ISBUS</board>
             <componentDependency>module_lin</componentDependency>
-            <keyword>LIN master slave uart</keyword>
+            <keyword>LIN</keyword>
         </component>
-        <component name = "LIN Bus Module" type = "component" buildresults_path = "module_lin/.module_lin.buildinfo" scope = "Early Development" path = "module_lin" metainfo_path = "module_lin/module_lin.metainfo" local = "false" id = "module_lin" description = "LIN Bus master and slave component">
-            <board>XP-SKC-L2 XA-SK-ISBUS</board>
-            <keyword>LIN master slave uart bus automotive industrial</keyword>
+        <component name = "LIN Bus Component" type = "component" buildresults_path = "module_lin/.module_lin.buildinfo" scope = "Early Development" path = "module_lin" metainfo_path = "module_lin/module_lin.metainfo" local = "false" id = "module_lin" description = "LIN Bus master and slave components">
+            <board>XP-SKC-L16</board>
+            <board>XA-SK-ISBUS</board>
+            <keyword>LIN</keyword>
         </component>
     </components>
-    <description>LIN master and slave software components</description>
+    <description>foo</description>
+    <docdir>module_lin/doc</docdir>
+    <docdir>app_lin_demo/doc</docdir>
     <location>git://git/apps/sc_lin.git</location>
     <name>sc_lin</name>
     <maintainer>XMOS</maintainer>
-    <partnumber>XM-003013-DH</partnumber>
-    <release parenthash = "80c867ae2a67fcc2c433adc35f81649fe8e0f11d" version = "1.0.0alpha0" githash = "a3c31955aa594320315881ffb68a73093f188041"></release>
-    <release parenthash = "04532f98ba98513418857bd07060fea8bce03ce6" version = "1.0.0alpha1" githash = "5bbf168175dc51a28a5eb684f994c91830739dff"></release>
-    <release parenthash = "9e46a17907df6f7e395d6d2e37b8bdae32bbb43d" version = "1.0.0alpha2" githash = "cd054b34e21225879de13c76c0f4270897f626a3"></release>
-    <release parenthash = "6422e5f5c1e19e759b057bb7a8672d64f280320c" version = "1.0.0alpha3" githash = "67a88796ff8d943d09700adf63a0396bdbcf7598"></release>
-    <release parenthash = "1ddb9adf4dec83a987f815951083c1e19a427310" version = "1.0.0alpha4" githash = "443ad50cc9455b46677010be6049c03d9100f8a1"></release>
-    <release parenthash = "7d1ecaff42b17f9fc1529b04c7452d45efaf7e82" version = "1.0.0alpha5" githash = "de531c3ab1c0641266fda82f3b9b4b3cac40a5fa"></release>
-    <release parenthash = "362ab453b24321ff277bb8918ce0277dd1c4d638" version = "1.0.0alpha6" githash = "885548e50b4c7900557022853e450d51ce029c2d"></release>
-    <release parenthash = "885548e50b4c7900557022853e450d51ce029c2d" version = "1.0.0beta0" githash = "a6f3942664adf64f60f644fc710491e6983d7b29"></release>
-    <release parenthash = "4ad54f7615b57871d08a8da5a6de1845e2c08672" version = "1.0.0beta1"></release>
-    <subpartnumber>XM-003014-SM</subpartnumber>
+    <partnumber>XM-003610-DH</partnumber>
+    <release parenthash = "e7929834d10a89ce7bd8c9a84f36af8a67e60b6d" version = "1.0.1beta0"></release>
+    <subpartnumber>XM-003611-SM</subpartnumber>
     <vendor>XMOS</vendor>
     <xpd_version>1.0</xpd_version>
 </xpd>

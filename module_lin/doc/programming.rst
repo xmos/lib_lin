@@ -15,7 +15,7 @@ A typical LIN Bus application will have at least two top level directories. The 
     app_[my_app_name]/
     module_lin/
 
-Of course the application may use other modules which can also be directories at this level. The modules compiled into the application are set by the ``USED_MODULES`` define in the application Makefile.
+The application may use other modules which can also be directories at this level. The modules compiled into the application are set by the ``USED_MODULES`` define in the application Makefile.
 
 Key Files
 +++++++++
@@ -67,7 +67,7 @@ Next create a ``main`` function with a par of both the ``lin_server`` task and a
 
 Now the ``application`` task is able to use the LIN bus master receive task, as well as call tx functions.
 
-To setup a LIN slave within the application, follow exactly the same procedure as above, changing the port and channel names as appropriate. Ie. the main statement may look like this::
+To setup a LIN slave within the application, follow exactly the same procedure as above, changing the port and channel names as appropriate. The main statement may look like this::
 
 	int main() {
 	  chan c_app_to_lin_slave;
