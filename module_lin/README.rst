@@ -14,7 +14,7 @@ Key Features
 ------------
 
    * LIN 2.1 master and slave protocol components
-   * 2400 to 115200 baud operation (limited by physical layer to 38400)
+   * 2400 to 115200 baud operation (often limited by physical layer to 20000 baud - please check the data sheet on your hardware)
    * Timeout and break detection
    * Integrated frame processing with simple application API
    * Single logical core usage per LIN node

@@ -11,7 +11,7 @@ For a full step-by-step walkthrough usage of ``module_lin``, please consult the 
 
 Notes
 +++++
- - The demo can run with a single ISBUS slice as a master only, but it is recommended to use two slices to demonstrate master and slave nodes running concurrently and the round trip passage of control data.
+ - The demo can run with a single IS-BUS slice as a master only, but it is recommended to use two slices to demonstrate master and slave nodes running concurrently and the round trip passage of control data.
 
 
  

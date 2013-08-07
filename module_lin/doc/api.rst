@@ -5,10 +5,15 @@ LIN Bus API
 
 .. _sec_conf_defines:
 
+Introduction
+------------
+
+Each LIN bus node is presented via a simple API allowing the transmission and reception of frames. Receive functions are presented via a wrapper that handles communication to a dedicated core that deals with LIN specific UART Rx task. Consequently each node requires an instance of lin_rx_server is required within an XC par statement. Please see the programming section for more details.
+
 Configuration Defines
 ---------------------
 
-The file ``lin_conf.h`` must be provided in the application source code, and it must define:
+The file ``lin_conf.h`` must be included in the application source code, and it must define:
 
 LIN_BAUD_RATE
 
@@ -39,7 +44,7 @@ Gap between bytes in bit periods
 Gap between LIN frames in bit periods
 
 **LIN_SYNCH_BREAK_BITS_MASTER**
-Number of break bit periods (13 normally)
+Number of break bit periods (13 as per the LIN spec)
 
 **LIN_SYNCH_BREAK_THRESHOLD_SLAVE**
 Number of bits before slave sees a break
@@ -54,7 +59,7 @@ Maximum time in milliseconds before master gives up on slave
 Maximum number of data bytes in a frame
 
 **LIN_SYNCH_BYTE**
-Synch byte value - normally 0x55
+Synch byte value - 0x55 as per the LIN spec
 
 
 Port Config

@@ -54,7 +54,7 @@ Declare the ports used by the LIN bus API and ``lin_rx_server`` in the main appl
       out port  p_slave_txd = XS1_PORT_1C;
       in port   p_slave_rxd = XS1_PORT_1D;
 
-Next create a ``main`` function with a par of both the ``lin_server`` function and an application function, these will require a channel to connect them. For example::
+Next create a ``main`` function with a par of both the ``lin_server`` task and an application task. These will require a channel to connect them for communication. For example::
 
 	int main() {
 	  chan c_app_to_lin_master;
@@ -65,7 +65,7 @@ Next create a ``main`` function with a par of both the ``lin_server`` function a
 	  return 0;
 	}
 
-Now the ``application`` function is able to use the LIN bus master function.
+Now the ``application`` task is able to use the LIN bus master receive task, as well as call tx functions.
 
 To setup a LIN slave within the application, follow exactly the same procedure as above, changing the port and channel names as appropriate. Ie. the main statement may look like this::
 
@@ -83,4 +83,4 @@ Software Requirements
 ---------------------
 
 The component is built on xTIMEcomposer Tools version 12.2.0
-The component can be used in version 12.2.00 or any higher version of xTIMEcomposer Tools.
+The component can be used in version 12.2.0 or any higher version of xTIMEcomposer Tools.
