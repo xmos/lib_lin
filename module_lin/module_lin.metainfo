@@ -14,125 +14,107 @@ componentVersion = "1v0"
 
 configPoints =
 {
-  lin_node_type =
-  {
-    short   = "Select LIN slave or master functionality",
-    long    = "",
-    help    = "Choose whether node is to be a LIN slave only or LIN master with integrated slave",
-    units   = "Node type",
-    type    = "string",
-    default = "slave",
-    options = {"slave","master"},
-    define  = "LIN_NODE_TYPE"
-  },
+    lin_node_type = {
+        short   = "Select LIN slave or master functionality",
+        long    = "",
+        help    = "Choose whether node is to be a LIN slave only or LIN master with integrated slave",
+        units   = "Node type",
+        type    = "string",
+        default = "slave",
+        options = {"slave","master"},
+        define  = "LIN_NODE_TYPE"
+    },
 
-  lin_hw_platform = 
-  {
-    short = "Hardware platform",
-    long = "Choose sliceKIT/IS-BUS or custom hardware",
-    help = "Choosing sliceKIT/IS-BUS fixes the TXD & RXD port width to 4b to match the kit pinout. Custom setting allows 1b ports for TXD & RXD",
-    units   = "HW target",
-    type    = "string",
-    options = {"sliceKIT_ISBUS","Custom"},
-    default = "sliceKIT_ISBUS",
-    resourceUsageFlags = {"noeffect"},
-    define  = "LIN_HW_PLATFORM"
-   },
+    lin_hw_platform = {
+        short   = "Hardware platform",
+        long    = "Choose sliceKIT/IS-BUS or custom hardware",
+        help    = "Choosing sliceKIT/IS-BUS fixes the TXD & RXD port width to 4b to match the kit pinout. Custom setting allows 1b ports for TXD & RXD",
+        units   = "HW target",
+        type    = "string",
+        default = "sliceKIT_ISBUS",
+        options = {"sliceKIT_ISBUS","Custom"},
+        define  = "LIN_HW_PLATFORM"
+    },
 
-  lin_baud_rate = 
-  {
-    short = "Baud rate in bits per second",
-    long = "",
-    help = "Choose the baud rate for the LIN node. Note that minimum and maximum is generally bounded by the transceiver. With a suitable physical layer, speeds of 115Kbaud are possible from this component",
-    type = "int",
-    units = "bits per second",
-    min = 2048,
-    max = 38400,
-    resourceUsageFlags = {"noeffect"},
-    define = "LIN_BAUD_RATE",
-    default = 9600
-  }
+    lin_baud_rate = {
+        short = "Baud rate in bits per second",
+        long = "",
+        help = "Choose the baud rate for the LIN node. Note that minimum and maximum is generally bounded by the transceiver. With a suitable physical layer, speeds of 115Kbaud are possible from this component",
+        type = "int",
+        units = "bits per second",
+        min = 2048,
+        max = 38400,
+        resourceUsageFlags = {"noeffect"},
+        define = "LIN_BAUD_RATE",
+        default = 19200
+    }
 }
 
 derivedValues = {}
 
 
-if swblock.params.lin_node_type == "master" then
-   if swblock.params.lin_hw_platform == "sliceKIT_ISBUS" then
-
 ports = {      
-        p_txd = {
+    p_master_sc_txd = {
         short   = "Master UART TXD port",
         long    = "",
         help    = "",
         width   = 4,
-        value   = "XS1_PORT_4A"
-      },
-        p_rxd = {
+        value   = "XS1_PORT_4A",
+        enabled = swblock.params.lin_node_type == "master" and swblock.params.lin_hw_platform == "sliceKIT_ISBUS"
+    },
+    p_master_sc_rxd = {
         short   = "Master UART RXD port",
         long    = "",
         help    = "",
         width   = 4,
-        value   = "XS1_PORT_4B"
-      }
-    }
-   else --custom hw--
-
-ports = {
-        p_txd = {
+        value   = "XS1_PORT_4B",
+        enabled = swblock.params.lin_node_type == "master" and swblock.params.lin_hw_platform == "sliceKIT_ISBUS"
+    },
+    p_master_custom_txd = {
         short   = "Master UART TXD port",
         long    = "",
         help    = "",
-        width   = 1
-      },
-        p_rxd = {
+        width   = 1,
+        enabled = swblock.params.lin_node_type == "master" and swblock.params.lin_hw_platform == "custom"
+    },
+    p_master_custom_rxd = {
         short   = "Master UART RXD port",
         long    = "",
         help    = "",
-        width   = 1
-      }
-    }
-  end --hw platform--
-
-else  --node type is slave--
-
-   if swblock.params.lin_hw_platform == "sliceKIT_ISBUS" then
-
-ports = {
-        p_txd = {
+        width   = 1,
+        enabled = swblock.params.lin_node_type == "master" and swblock.params.lin_hw_platform == "custom"
+    },
+    p_slave_sc_txd = {
         short   = "Slave UART TXD port",
         long    = "",
         help    = "",
         width   = 4,
-        value   = "XS1_PORT_4E"
-      },
-        p_rxd = {
+        value   = "XS1_PORT_4E",
+        enabled = swblock.params.lin_node_type == "slave" and swblock.params.lin_hw_platform == "sliceKIT_ISBUS"
+    },
+    p_slave_sc_rxd = {
         short   = "Slave UART RXD port",
         long    = "",
         help    = "",
         width   = 4,
-        value   = "XS1_PORT_4F"
-      }
-    }
-   else --custom hw--
-
-ports = {
-        p_txd = {
+        value   = "XS1_PORT_4F",
+        enabled = swblock.params.lin_node_type == "slave" and swblock.params.lin_hw_platform == "sliceKIT_ISBUS"
+    },
+    p_slave_custom_txd = {
         short   = "Slave UART TXD port",
         long    = "",
         help    = "",
-        width   = 1
-      },
-        p_rxd = {
+        width   = 1,
+        enabled = swblock.params.lin_node_type == "slave" and swblock.params.lin_hw_platform == "custom"
+    },
+    p_slave_custom_rxd = {
         short   = "Slave UART RXD port",
         long    = "",
         help    = "",
-        width   = 1
-      }
+        width   = 1,
+        enabled = swblock.params.lin_node_type == "slave" and swblock.params.lin_hw_platform == "custom"
     }
-    end --hw platform--
-end --node type--
-
+}
 
 channels = {
   c_c2s = {
@@ -153,42 +135,68 @@ end
 -------------------------------------------------------------------------------
 
 if swblock.params.lin_node_type == "master" then
-generatedCode = {
-  includes = {"lin_utils.h","lin_conf.h","lin_master.h"},
-  globals = [[
-out port p_master_txd${swblock.id} = ${swblock.ports.p_txd};
-in port p_master_rxd${swblock.id} = ${swblock.ports.p_rxd};
-           ]],
-  body = [[
-    lin_rx_server(p_master_rxd${swblock.id}, ${swblock.chanends.c_c2s});
-    ]]
-}
+  if swblock.params.lin_hw_platform == "custom" then
+    generatedcode = {
+      includes = {"lin_utils.h","lin_conf.h","lin_master.h"},
+      globals = [[
+    out port p_master_txd${swblock.id} = ${swblock.ports.p_master_sc_txd};
+    in port p_master_rxd${swblock.id} = ${swblock.ports.p_master_sc_rxd};
+               ]],
+      body = [[
+        lin_rx_server(p_master_rxd${swblock.id}, ${swblock.chanends.c_c2s});
+        ]]
+    }
+  else -- lin_hw_platform --
+    generatedcode = {
+      includes = {"lin_utils.h","lin_conf.h","lin_master.h"},
+      globals = [[
+    out port p_master_txd${swblock.id} = ${swblock.ports.p_master_custom_txd};
+    in port p_master_rxd${swblock.id} = ${swblock.ports.p_master_custom_rxd};
+               ]],
+      body = [[
+        lin_rx_server(p_master_rxd${swblock.id}, ${swblock.chanends.c_c2s});
+        ]]
+    }
+  end -- lin_hw_platform --
 
-else
+else -- lin_node_type --
 
-generatedCode = {
-  includes = {"lin_conf.h","lin_utils.h","lin_slave.h"},
-  globals = [[
-out port p_slave_txd${swblock.id} = ${swblock.ports.p_txd};
-in port p_slave_rxd${swblock.id} = ${swblock.ports.p_rxd};
-           ]],
-  body = [[
-    lin_rx_server(p_slave_rxd${swblock.id}, ${swblock.chanends.c_c2s});
-    ]]
-}
-end --node type master--	     
+  if swblock.params.lin_hw_platform == "custom" then
+    generatedCode = {
+      includes = {"lin_conf.h","lin_utils.h","lin_slave.h"},
+      globals = [[
+    out port p_slave_txd${swblock.id} = ${swblock.ports.p_slave_sc_txd};
+    in port p_slave_rxd${swblock.id} = ${swblock.ports.p_slave_sc_rxd};
+               ]],
+      body = [[
+        lin_rx_server(p_slave_rxd${swblock.id}, ${swblock.chanends.c_c2s});
+        ]]
+    }
+  else -- lin_hw_platform --
+    generatedCode = {
+      includes = {"lin_conf.h","lin_utils.h","lin_slave.h"},
+      globals = [[
+    out port p_slave_txd${swblock.id} = ${swblock.ports.p_slave_custom_txd};
+    in port p_slave_rxd${swblock.id} = ${swblock.ports.p_slave_custom_rxd};
+               ]],
+      body = [[
+        lin_rx_server(p_slave_rxd${swblock.id}, ${swblock.chanends.c_c2s});
+        ]]
+    }
+  end -- lin_hw_platform --
+end --node type--	     
 
 
 files = {
   ["module_lin/lin_conf_example.h"] = "src/lin_conf.h"
   }
 
-if swblock.params.lin_node_type == "master" then
+if swblock.params.lin_node_type == 'master' then
   api = {
 	'lin_master_init',
 	'lin_master_send_frame',
 	'lin_master_request_frame'
-  }
+}
 
 else
   api = {
@@ -197,6 +205,6 @@ else
 	'lin_slave_send_response',
 	'lin_slave_get_response'
   } 
-end --node type --
+end --node type--
 
 
