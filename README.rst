@@ -2,7 +2,7 @@
 sc_lin
 ............
 
-:Latest release: 1.0.1rc0
+:Latest release: 1.0.2beta0
 :Maintainer: XMOS
 :Description: foo
 
