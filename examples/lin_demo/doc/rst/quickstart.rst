@@ -43,7 +43,7 @@ Import and Build the Application
 
    #. Launch xTIMEcomposer and check that it is operating in online mode. Open the edit perspective (Window->Open Perspective->XMOS Edit).
    #. Locate the ``'LIN Bus demonstration application'`` item in the xSOFTip pane on the bottom left of the window and drag it into the Project Explorer window in the xTIMEcomposer. This will also cause dependent modules (in this case, module_lin) to be imported as well. 
-   #. Click on the app_lin_demo item in the Project Explorer pane then click on the build icon (hammer) in xTIMEcomposer. Check the console window to verify that the application has built successfully.
+   #. Click on the lin_demo item in the Project Explorer pane then click on the build icon (hammer) in xTIMEcomposer. Check the console window to verify that the application has built successfully.
 
 For help using xTIMEcomposer, try the xTIMEcomposer tutorial, which you can find by selecting Help->Tutorials from the xTIMEcomposer menu.
 
@@ -54,7 +54,7 @@ Run the Application
 
 Now that the application has been compiled, the next step is to run it on the SliceKIT Core Board using the tools to load the application over JTAG (via the XTAG2 and XTAG Adapter card) into the xCORE multicore microcontroller. Collecting print statements from the application is done via XScope over xCONNECT links and consequently, the I/O collection method needs to be changed from JTAG. The procedure to do this is described below.
 
-   #. Select the file ``app_lin_demo.xc`` in the ``app_lin_demo`` project from the Project Explorer. This resides in the /src directory.
+   #. Select the file ``lin_demo.xc`` in the ``lin_demo`` project from the Project Explorer. This resides in the /src directory.
    #. From the ``Run`` pull down menu, select ``Run Configurations``. In the left hand pane of the run configurations dialogue, you will see the ``xCORE Application``. Double click (or right click-new) ``xCORE Application``. You will see the ``Main`` tab of the right hand pane containing target options. Ensure that ``hardware`` is selected from the Device options box. If you only see ``Simulator`` as the available target then please check to ensure the xTAG-2 debug adapter is properly connected to your host workstation. Next choose ``Run xSCOPE output server`` from the I/O options selection near the bottom. This will enable collection of fast debug print lines from the application.
    #. Now run the application by clicking on the ``Run`` button at the bottom right. When the application is running, click on the ``Console`` tab a the bottom of xTIMEcomposer.
    #. You should see the text ``LIN bus master, 1 x ISBUS slice, demo app started.`` in the console window and the LEDs on the IS-BUS slice should be flashing briefly every 250ms. This indicates activity on the UART pins that are connected to the transceiver.  
@@ -64,7 +64,7 @@ Enable Real-Time xSCOPE
 
 xTIMEcomposer includes xSCOPE, a tool for instrumenting your program with real-time probes. This tool allows you to collect data and display it within xTIMEcomposer. This allows both a graphical output and as well as very low intrusiveness console printing. 
 
-  #. Enable real-time xSCOPE. From the ``Run`` pull down menu, select ``Run Configurations``. In the left hand pane of the run configurations dialogue, you will see the ``xCORE Application -> app_lin_demo_Debug.xe`` tree, which was created from the previous run. Select  ``app_lin_demo_Debug.xe``, and in the ``xSCOPE`` tab, select ``Real-Time [XRTScope] Mode``. This will instruct the tool to be render received xSCOPE data in real time. Click ``Apply`` followed by ``Run``.
+  #. Enable real-time xSCOPE. From the ``Run`` pull down menu, select ``Run Configurations``. In the left hand pane of the run configurations dialogue, you will see the ``xCORE Application -> lin_demo.xe`` tree, which was created from the previous run. Select  ``lin_demo.xe``, and in the ``xSCOPE`` tab, select ``Real-Time [XRTScope] Mode``. This will instruct the tool to be render received xSCOPE data in real time. Click ``Apply`` followed by ``Run``.
   #. View the master txd & rxd within xSCOPE. After running the program again, select the ``Real-time Scope`` window at the bottom and click on ``auto``, followed by square to the left of the signal ``Lin bus master node``. Next click ``Falling`` and finally click on the trace display window to set the trigger time and level. You should see a LIN bus frame as below, clearly showing the break, synch and ID symbols followed by response data payload. 
 
 .. figure:: images/xscope.*
@@ -85,7 +85,7 @@ Next Steps
   		
   #. Run the demonstration again and observe the brightness of the LEDs compared with before. The txd and red pins remain active for longer periods due to the slower baud rate, causing them to be illuminated for more time, increasing the brightness.
   #. Inject bus errors into the system. On the IS-BUS slice, try shorting the connections of P2 together. This holds the LIN bus at ground (dominant) and prevents correct transmission of frames. Note this is safe because the LIN bus is pulled up via a 1K resistor. In the console you will see master and/or slave errors reported. Depending on the timing of the fault relative to the data, you may see a variety of error types.
-  #. Examine the application code. In xTIMEcomposer navigate to the ``src`` directory under app_lin_demo and double click on the ``app_lin_demo.xc`` file within it. The file will open in the central editor window.
+  #. Examine the application code. In xTIMEcomposer navigate to the ``src`` directory under lin_demo and double click on the ``lin_demo.xc`` file within it. The file will open in the central editor window.
   #. Try changing the line from::
   
 	 	next_frame_time += 25000000;
@@ -114,7 +114,7 @@ To setup up the system for two IS-BUS sliceCARDs:
    #. Add a second IS-BUS sliceCARD to the core board using the connector marked with the ``CIRCLE``.
    #. Ensure a jumper is fitted to the second IS-BUS sliceCARD on header P3, connected between 1 & 2 (provides 5V to LIN bus VBAT).
    #. Connect a flying lead between pin 4 of P6 of both IS-BUS sliceCARDs. This connects the LIN bus data line between the two nodes.
-   #. Ensure that the application is set to build for 2 IS-BUS sliceCARDs. To do this, modify line 5 of app_lin_demo.xc to::
+   #. Ensure that the application is set to build for 2 IS-BUS sliceCARDs. To do this, modify line 5 of lin_demo.xc to::
    
      	#define ISBUS_NODE_COUNT 2
    

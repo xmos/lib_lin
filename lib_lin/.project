@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-    <name>app_lin_demo</name>
+    <name>lib_lin</name>
     <comment></comment>
     <projects>
     </projects>
     <buildSpec>
-        <buildCommand>
-            <name>com.xmos.cdt.core.IncludePathBuilder</name>
-            <arguments>
-            </arguments>
-        </buildCommand>
-        <buildCommand>
-            <name>com.xmos.cdt.core.ModulePathBuilder</name>
-            <arguments>
-            </arguments>
-        </buildCommand>
         <buildCommand>
             <name>org.eclipse.cdt.managedbuilder.core.genmakebuilder</name>
             <triggers>clean,full,incremental,</triggers>
@@ -83,4 +73,3 @@
         <nature>com.xmos.cdt.core.XdeProjectNature</nature>
     </natures>
 </projectDescription>
-
