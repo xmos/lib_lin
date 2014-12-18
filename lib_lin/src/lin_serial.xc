@@ -1,10 +1,3 @@
-/*
- * lin_serial.xc
- *
- *  Created on: May 9, 2013
- *      Author: Ed
- */
-
 #include "lin_serial.h"
 #include "lin_conf.h"
 #include "lin_types.h"
