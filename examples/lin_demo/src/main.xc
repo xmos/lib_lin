@@ -4,8 +4,8 @@
 
 #define ISBUS_NODE_COUNT 1	//Number of ISBUS slices connected.
 							              //Choose 1 for master only demo, 2 for master & slave
-#include "lin_conf.h"
 #include "lin_master.h"
+#include "lin_serial.h"
 #include "lin_utils.h"
 #if ISBUS_NODE_COUNT == 2
 #include "lin_slave.h"

@@ -1,8 +1,6 @@
 #include "lin_slave.h"
-#include "lin_conf.h"
 #include "lin_rx_client.h"
 #include "lin_utils.h"
-#include "lin_serial.h"
 
 lin_slave_error_t lin_slave_init(out port p_slave_txd, chanend c_a2rx){
 

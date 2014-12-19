@@ -1,9 +1,6 @@
 #include "lin_master.h"
-#include "lin_serial.h"
 #include "lin_rx_client.h"
-#include "lin_types.h"
 #include "lin_utils.h"
-#include "lin_conf.h"
 
 lin_slave_error_t lin_master_init(out port p_master_txd, chanend c_a2rx){
 

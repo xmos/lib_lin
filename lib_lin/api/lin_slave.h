@@ -1,8 +1,6 @@
 #ifndef _lin_slave_h_
 #define _lin_slave_h_
 #include "lin_types.h"
-#include "lin_utils.h"
-#include "lin_serial.h"
 
 /**
  * Initialises the lin slave. Sets the txd pin to recessive and resets

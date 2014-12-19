@@ -1,6 +1,5 @@
 #include "lin_serial.h"
 #include "lin_conf.h"
-#include "lin_types.h"
 
 //convert byte to a 10 bit serial frame (add start/stop bits)
 static unsigned int format_tx_byte (unsigned char tx){

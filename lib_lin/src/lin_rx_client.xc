@@ -1,5 +1,4 @@
 #include "lin_rx_client.h"
-#include "lin_types.h"
 
 lin_serial_rx_state_t lin_rx_reset (chanend c_a2s)
   {

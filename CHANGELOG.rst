@@ -4,6 +4,7 @@ LIN library change log
 2.0.0
 -----
   * Repository restructured
+  * Header file includes rationalized
 
 1.0.2
 -----

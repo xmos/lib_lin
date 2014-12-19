@@ -1,5 +1,4 @@
 #include "lin_utils.h"
-#include "lin_conf.h"
 #include <print.h>
 
 void lin_wait(unsigned int bit_periods){
