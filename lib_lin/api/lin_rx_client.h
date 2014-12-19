@@ -78,4 +78,4 @@ lin_serial_rx_state_t lin_rx_get_status (chanend c_a2s);
  */
 lin_serial_rx_state_t lin_rx_reset (chanend c_a2s);
 
-#endif
+#endif // _lin_slave_client_h_

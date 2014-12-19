@@ -4,7 +4,7 @@
 #include "lin_types.h"
 
 /**
- * Initialises the lin slave. Sets the txd pin to recessive and resets
+ * Initialises the LIN slave. Sets the txd pin to recessive and resets
  * the serial rx server.
  *
  * /param p_slave_txd is the slave tx port that transmits data.
@@ -49,4 +49,4 @@ lin_slave_error_t lin_slave_send_response(out port p_slave_txd, chanend c_a2rx, 
  */
 lin_slave_error_t lin_slave_get_response(chanend c_a2rx, lin_frame_t &rx_response);
 
-#endif
+#endif // _lin_slave_h_

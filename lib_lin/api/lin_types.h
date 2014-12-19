@@ -3,7 +3,7 @@
 
 #include "lin_conf.h"
 
-//response section of frame structure
+// Response section of frame structure
 typedef struct {
   unsigned char data[LIN_MAXIMUM_RESPONSE_LENGTH];
   unsigned char length;
@@ -11,15 +11,15 @@ typedef struct {
   unsigned char id;
 } lin_frame_t;
 
-//Checksum style. Classic checks data response bytes only.
-//Enhanced checks data bytes and also ID byte
+// Checksum style. Classic checks data response bytes only.
+// Enhanced checks data bytes and also ID byte
 typedef enum {
   LIN_CHECKSUM_CLASSIC,
   LIN_CHECKSUM_ENHANCED
 } lin_checksum_style_t;
 
 
-//Lin slave state machine states
+// LIN slave state machine states
 typedef enum {
   LIN_SLAVE_IDLE = 0,
   LIN_SLAVE_RECEIVE_PID,
@@ -30,7 +30,7 @@ typedef enum {
   LIN_SLAVE_TX_CHECKSUM
 } lin_slave_state_t;
 
-//Lin slave state machine error codes
+// LIN slave state machine error codes
 typedef enum {
   LIN_SUCCESS = 0,
   LIN_ERR_READBACK,
@@ -41,11 +41,7 @@ typedef enum {
   LIN_ERR_BAD_SYNCH,
   LIN_ERR_UNKNOWN_PID,
   LIN_ERR_FRAMING,
-  LIN_ERR_INVALID //for debugging. Illegal error should never be returned
+  LIN_ERR_INVALID // For debugging. Illegal error should never be returned
 } lin_slave_error_t;
 
-#endif
-
-
-
-
+#endif // _lin_types_h_

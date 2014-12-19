@@ -13,7 +13,7 @@ lin_slave_error_t lin_master_send_frame(lin_frame_t tx_frame, out port p_master_
   lin_slave_error_t return_error = LIN_ERR_INVALID;
   lin_serial_rx_state_t rx_state;
 
-  //send header. No error checking
+  // Send header. No error checking
   lin_tx_break(p_master_txd);
   lin_tx_byte (p_master_txd, LIN_SYNCH_BYTE);
   lin_wait(LIN_SYNCH_BREAK_DELIMIT);
@@ -21,7 +21,7 @@ lin_slave_error_t lin_master_send_frame(lin_frame_t tx_frame, out port p_master_
 
   lin_wait(LIN_RESPONSE_SPACE);
 
-  //Send data/response, and check to see if the right values were seen on the lin bus
+  // Send data/response, and check to see if the right values were seen on the LIN bus
   for(int tx_counter = 0; tx_counter < tx_frame.length; tx_counter++) {
     lin_tx_byte (p_master_txd, tx_frame.data[tx_counter]);
     rx_state = lin_rx_get_last_byte(rx_byte, c_a2rx);
@@ -47,7 +47,6 @@ lin_slave_error_t lin_master_send_frame(lin_frame_t tx_frame, out port p_master_
   }
   return return_error;
 }
-
 
 lin_slave_error_t lin_master_request_frame(lin_frame_t &rx_frame, out port p_master_txd, chanend c_a2rx) {
   unsigned char rx_byte;

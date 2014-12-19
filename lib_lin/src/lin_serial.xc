@@ -1,7 +1,7 @@
 #include "lin_serial.h"
 #include "lin_conf.h"
 
-//convert byte to a 10 bit serial frame (add start/stop bits)
+// Convert byte to a 10 bit serial frame (add start/stop bits)
 static unsigned int format_tx_byte (unsigned char tx) {
   unsigned int to_tx;
   to_tx = 0x300 | (unsigned int) tx; //set stop bit and post stop bit (idle state)
@@ -9,7 +9,7 @@ static unsigned int format_tx_byte (unsigned char tx) {
   return to_tx;
 }
 
-//covert serial frame to byte - strip start/stop bits
+// Covert serial frame to byte - strip start/stop bits
 static unsigned int unformat_rx_byte (unsigned int rx) {
   rx >>= 1;
   rx &= 0xff; //mask off start bit
@@ -17,8 +17,8 @@ static unsigned int unformat_rx_byte (unsigned int rx) {
 }
 
 
-//Uart Tx. Send up to a 32 bit serial word, LSB first.
-//This function requires you to add start/stop bits to the Tx frame
+// Uart Tx. Send up to a 32 bit serial word, LSB first.
+// This function requires you to add start/stop bits to the Tx frame
 static void lin_tx_raw(out port txd, unsigned int tx_word, int n_bits) {
   int next_bit_tmr_tx;
   unsigned int bit_counter;
@@ -26,9 +26,9 @@ static void lin_tx_raw(out port txd, unsigned int tx_word, int n_bits) {
 
   bit_counter = n_bits;
 
-  if (tx_word & 0x1) txd <: TX_RECESSIVE; //output bit 0, start bit
+  if (tx_word & 0x1) txd <: TX_RECESSIVE; // Output bit 0, start bit
   else txd <: TX_DOMINANT;
-  tx_bit_timer :> next_bit_tmr_tx;        //read timer time
+  tx_bit_timer :> next_bit_tmr_tx;        // Read timer time
   tx_word >>= 1;
   next_bit_tmr_tx += LIN_BIT_TIME;
 
@@ -52,7 +52,7 @@ void lin_tx_break(out port txd) {
               LIN_SYNCH_BREAK_BITS_MASTER + LIN_SYNCH_BREAK_DELIMIT);
 }
 
-//UART Rx server core with continuous break detection and timeout
+// UART Rx server core with continuous break detection and timeout
 void lin_rx_server(in port rxd, chanend c) {
   int transition_to_recessive_rx, transition_to_dominant_rx,
       next_rx_sample_time, break_start_time,
@@ -63,10 +63,10 @@ void lin_rx_server(in port rxd, chanend c) {
   unsigned char rx_last_received_byte;
   timer rx_bit_timer, rx_timeout_timer;
 
-  set_port_pull_down(rxd);  //enable pull downs on port (pull unused pins on >1b port to low)
-                            //Needed for slice kit with IS-BUS slice since RXD is on 4b port
+  set_port_pull_down(rxd);  // Enable pull downs on port (pull unused pins on >1b port to low)
+                            // Needed for slice kit with IS-BUS slice since RXD is on 4b port
 
-  //Set initial conditions for state machine. Assume waiting at recessive level
+  // Set initial conditions for state machine. Assume waiting at recessive level
   command = SLAVE_RX_NO_COMMAND;
   current_state =  SLAVE_RX_WAITING;
   previous_state = SLAVE_RX_WAITING;
@@ -80,7 +80,7 @@ void lin_rx_server(in port rxd, chanend c) {
 #pragma ordered
 
       select{
-        //Looks for specific signal level on lin bus. Used to detect transition from high/low/high
+        // Looks for specific signal level on LIN bus. Used to detect transition from high/low/high
         case rxd when pinseq(lin_bus_next) :> int:
           if (lin_bus_next == RX_DOMINANT) {
             rx_bit_timer :> transition_to_dominant_rx;
@@ -103,7 +103,7 @@ void lin_rx_server(in port rxd, chanend c) {
           }
         break;
 
-        //Samples the level on the rx pin periodically for serial receive
+        // Samples the level on the rx pin periodically for serial receive
         case (current_state == SLAVE_RX_IN_PROGRESS) => rx_bit_timer when timerafter(next_rx_sample_time) :> int:
           rxd :> rx_port_val;
           if (rx_port_val == RX_RECESSIVE) { rx_word |= (0x01 << bit_counter); }
@@ -126,12 +126,12 @@ void lin_rx_server(in port rxd, chanend c) {
           break;
 
 
-        //Timer for detecting time out after get byte blocking command
+        // Timer for detecting time out after get byte blocking command
         case (command == SLAVE_RX_GET_NEXT_BYTE_COMMAND) => rx_timeout_timer when timerafter(time_out_trigger) :> int:
           current_state = SLAVE_RX_TIMEOUT;
           break;
 
-        //Comms handler from client API. Handles commands given
+        // Comms handler from client API. Handles commands given
         case c :> command:
           switch (command) {
           case SLAVE_RX_RESET_COMMAND:
@@ -152,21 +152,21 @@ void lin_rx_server(in port rxd, chanend c) {
             break;
 
           case SLAVE_RX_GET_NEXT_BYTE_COMMAND:
-            rx_timeout_timer :> time_out_trigger; //get current time
-            time_out_trigger += (LIN_MESSAGE_TIMEOUT * XS1_TIMER_KHZ); //set timeout to correct number of milliseconds
+            rx_timeout_timer :> time_out_trigger; // Get current time
+            time_out_trigger += (LIN_MESSAGE_TIMEOUT * XS1_TIMER_KHZ); // Set timeout to correct number of milliseconds
             c <: current_state;
-            break; //Transmission handled below after full word recieved
+            break; // Transmission handled below after full word recieved
 
           case SLAVE_RX_GET_BREAK_COMMAND:
             c <: current_state;
-            break; //handled below after stop bit error then break received
+            break; // Handled below after stop bit error then break received
 
           case SLAVE_RX_NO_COMMAND:
             break;
           }
-        break; //next RX sample time
-      } //select
-    } //rx loop (while waiting or receieving)
+        break; // Next RX sample time
+      } // select
+    } // rx loop (while waiting or receiving)
 
     if(command == SLAVE_RX_GET_NEXT_BYTE_COMMAND) {
       c <: current_state;
@@ -183,7 +183,7 @@ void lin_rx_server(in port rxd, chanend c) {
     lin_bus_next = RX_DOMINANT;
     previous_state = current_state;
     current_state = SLAVE_RX_WAITING;
-  } //while (1)
+  } // while (1)
 }
 
 

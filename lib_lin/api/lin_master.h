@@ -4,7 +4,7 @@
 #include "lin_types.h"
 
 /**
- * Initialises the lin master. Sets the txd pin to recessive and resets
+ * Initialises the LIN master. Sets the txd pin to recessive and resets
  * the serial rx server.
  *
  * /param p_master_txd is the master tx port on which to transmit both
@@ -45,4 +45,4 @@ lin_slave_error_t lin_master_send_frame(lin_frame_t tx_response, out port p_mast
  */
 lin_slave_error_t lin_master_request_frame(lin_frame_t &rx_response, out port p_master_txd, chanend c_a2rx);
 
-#endif
+#endif // _lin_master_h_

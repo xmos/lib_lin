@@ -1,5 +1,5 @@
 
-lin Bus Programming Guide
+LIN Bus Programming Guide
 =========================
 
 This section provides information on how to program applications using the LIN Bus module.

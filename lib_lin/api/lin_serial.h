@@ -1,7 +1,7 @@
 #ifndef _lin_serial_h_
 #define _lin_serial_h_
 
-//Slave rx serial state machine states
+// Slave rx serial state machine states
 typedef enum {
   SLAVE_RX_RESET = 0,
   SLAVE_RX_WAITING,
@@ -13,7 +13,7 @@ typedef enum {
   SLAVE_RX_TIMEOUT
 } lin_serial_rx_state_t;
 
-//Commands that can be sent to rx serial state machine core
+// Commands that can be sent to rx serial state machine core
 typedef enum {
   SLAVE_RX_NO_COMMAND = 0,
   SLAVE_RX_RESET_COMMAND,
@@ -49,11 +49,11 @@ void lin_tx_byte(out port txd, unsigned char tx_byte);
  * This function must be run in it's own core (within scope of a par).
  * One rx_server is required per node, either master or slave.
  *
- * /param rxd is the receieve port on which to listen for lin frames
+ * /param rxd is the receive port on which to listen for LIN frames
  * /param c_a2rx is the channel over which the client communicates with the sever
  */
 void lin_rx_server(in port rxd, chanend c_a2rx);
 
-//Note all other serial rx functions accessed via lin_rx_client
+// Note all other serial rx functions accessed via lin_rx_client
 
-#endif
+#endif // _lin_serial_h_

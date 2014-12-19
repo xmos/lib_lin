@@ -68,7 +68,7 @@ lin_slave_error_t lin_slave_send_response(out port p_slave_txd, chanend c_a2rx, 
       lin_wait(LIN_RESPONSE_SPACE);
       for(int tx_counter = 0; tx_counter < tx_response.length; tx_counter++) {
         lin_tx_byte (p_slave_txd, tx_response.data[tx_counter]);
-        rx_state = lin_rx_get_last_byte (rx_byte, c_a2rx); //new
+        rx_state = lin_rx_get_last_byte (rx_byte, c_a2rx); // New
         if ((rx_state == SLAVE_RX_START_BIT_ERROR) || (rx_state == SLAVE_RX_STOP_BIT_ERROR)) {
            return_error = LIN_ERR_FRAMING;
            lin_slave_state = LIN_SLAVE_IDLE;
