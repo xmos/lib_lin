@@ -165,7 +165,7 @@ void master_application(out port p_txd, chanend c_ma2s) {
 #endif
 
   while(1) {
-    lin_make_random_frame(tx_frame, seed);      //Create data to send to slave
+    make_random_frame(tx_frame, seed);          //Create data to send to slave
     tx_frame.id = 0x19;                         //Set ID to instruct slave to receive data
 
     t when timerafter(next_frame_time) :> void; //wait for next slot
@@ -178,7 +178,7 @@ void master_application(out port p_txd, chanend c_ma2s) {
     next_frame_time += 25000000;                //Add 250ms
 
 #if ISBUS_NODE_COUNT == 2
-    lin_make_random_frame(rx_frame, ~seed);     //Create data to overwrite on receive, including setting length field
+    make_random_frame(rx_frame, ~seed);         //Create data to overwrite on receive, including setting length field
     rx_frame.id = 0x24;                         //Set ID to instruct slave to send repsonse
 
     t when timerafter(next_frame_time) :> void; //wait for next slot
@@ -202,7 +202,7 @@ void slave_application (out port p_txd, chanend c_sa2s) {
   lin_frame_t slave_frame;                      //Declare a lin frame
   unsigned int seed = 0x33357406;               //random number seed
 
-  lin_make_random_frame(slave_frame, seed);     //Initialise frame with random contents
+  make_random_frame(slave_frame, seed);         //Initialise frame with random contents
   lin_slave_init(p_txd, c_sa2s);                //Initialise slave tx port and rx server
 
   while(1) {
