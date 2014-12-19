@@ -1,5 +1,6 @@
 #ifndef _lin_utils_h_
 #define _lin_utils_h_
+
 #include "lin_types.h"
 
 /**

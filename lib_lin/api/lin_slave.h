@@ -1,5 +1,6 @@
 #ifndef _lin_slave_h_
 #define _lin_slave_h_
+
 #include "lin_types.h"
 
 /**

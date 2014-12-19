@@ -1,5 +1,6 @@
 #ifndef _lin_master_h_
 #define _lin_master_h_
+
 #include "lin_types.h"
 
 /**

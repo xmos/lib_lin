@@ -1,5 +1,6 @@
 #ifndef _lin_types_h_
 #define _lin_types_h_
+
 #include "lin_conf.h"
 
 //response section of frame structure
