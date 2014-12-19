@@ -23,7 +23,6 @@ typedef enum {
   SLAVE_RX_GET_BREAK_COMMAND
 } lin_serial_rx_command_t;
 
-
 /**
  * Send a break. This function will block until all bits have been transmitted
  * References lin_conf.h for length of break

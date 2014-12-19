@@ -44,5 +44,5 @@ lin_slave_error_t lin_master_send_frame(lin_frame_t tx_response, out port p_mast
  * /returns lin_slave_error type
  */
 lin_slave_error_t lin_master_request_frame(lin_frame_t &rx_response, out port p_master_txd, chanend c_a2rx);
-#endif
 
+#endif

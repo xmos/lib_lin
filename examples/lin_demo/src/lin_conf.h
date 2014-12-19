@@ -36,4 +36,3 @@
 #define LIN_SYNCH_BYTE                  0x55//Synch byte in header
 
 #endif
-
