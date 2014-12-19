@@ -13,7 +13,7 @@ Directory Structure
 A typical LIN Bus application will have at least two top level directories. The application will be contained in a directory starting with ``app_``, the LIN Bus module source is in the ``module_lin`` directory which contains library files required to build the application. ::
     
     app_[my_app_name]/
-    module_lin/
+    lib_lin/
 
 The application may use other modules which can also be directories at this level. The modules compiled into the application are set by the ``USED_MODULES`` define in the application Makefile.
 
@@ -41,10 +41,10 @@ To use the LIN bus module first set up the directory structure as shown above. C
 
 Next, if the ports you are using are wider than 1b (ie. 4b ports), set the appropriate bit fields defining which pin is connected to rxd/txd on the transceiver. This should be done within ``lin_conf.h`` and can look like this::
 
-      #define TX_RECESSIVE 0xf //bits 3..0 = 1
-      #define TX_DOMINANT 0xb  //bits 3, 1..0 = 1, bit 2 (txd) = 0
-      #define RX_RECESSIVE 0x1 //bits 3..1 = 0, bit 0 (rxd) = 0
-      #define RX_DOMINANT 0x0  //bits 3..0 = 0
+      #define TX_RECESSIVE 0xf // Bits 3..0 = 1
+      #define TX_DOMINANT  0xb // Bits 3, 1..0 = 1, bit 2 (txd) = 0
+      #define RX_RECESSIVE 0x1 // Bits 3..1 = 0, bit 0 (rxd) = 0
+      #define RX_DOMINANT  0x0 // Bits 3..0 = 0
 
 Declare the ports used by the LIN bus API and ``lin_rx_server`` in the main application code. This may look something like this (1b ports shown for master and slave)::
 
