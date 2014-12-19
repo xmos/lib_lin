@@ -127,7 +127,7 @@ void dso_led_app(){
     masterp = peek(p_master_shadow);		    //Read the master's port (8b port includes txd & rxd)
     slavep = peek(p_slave_shadow);
 #if USE_XSCOPE
-    xscope_probe_data(0, masterp);					//Send data to xscope
+    xscope_int(0, masterp);					        //Send data to xscope
 #endif
     if (masterp & 0x04) p_led0_master <: 1;	//Poll txd and rxd activity pins and echo to LEDs
     else p_led0_master <: 0;
