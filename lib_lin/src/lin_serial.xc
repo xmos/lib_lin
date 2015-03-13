@@ -1,3 +1,4 @@
+// Copyright (c) 2015, XMOS Ltd, All rights reserved
 #include "lin_serial.h"
 #include "lin_conf.h"
 

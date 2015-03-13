@@ -1,3 +1,4 @@
+// Copyright (c) 2015, XMOS Ltd, All rights reserved
 #include "lin_slave.h"
 #include "lin_rx_client.h"
 #include "lin_utils.h"

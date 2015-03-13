@@ -1,3 +1,4 @@
+// Copyright (c) 2015, XMOS Ltd, All rights reserved
 #include "lin_rx_client.h"
 
 lin_serial_rx_state_t lin_rx_reset (chanend c_a2s) {
