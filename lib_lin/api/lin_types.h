@@ -1,7 +1,8 @@
 #ifndef _lin_types_h_
 #define _lin_types_h_
-
+#ifdef __lin_conf_h_exists__
 #include "lin_conf.h"
+#endif
 
 // Response section of frame structure
 typedef struct {

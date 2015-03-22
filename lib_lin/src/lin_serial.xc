@@ -1,6 +1,9 @@
 // Copyright (c) 2015, XMOS Ltd, All rights reserved
+#include <xs1.h>
 #include "lin_serial.h"
+#ifdef __lin_conf_h_exists__
 #include "lin_conf.h"
+#endif
 
 // Convert byte to a 10 bit serial frame (add start/stop bits)
 static unsigned int format_tx_byte (unsigned char tx) {

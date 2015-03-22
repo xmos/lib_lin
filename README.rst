@@ -1,57 +1,58 @@
 LIN library
 ===========
 
-.. rheader::
-
-   LIN |version|
-
 Summary
 -------
 
-.. TODO: one or two paragraphs describing the library
+A software defined LIN bus library. The LIN library include master
+and slave peripherals. Master component automatically includes slave
+functionality. 50MIPS is required for the baud rate of
+115Kbps. Connects directly to LIN transceiver using Rxd and Txd pins.
 
-The LIN components include master and slave peripherals. Master component automatically includes slave functionality. 50MIPS is required for the baud rate of 115Kbps. Connects directly to LIN transceiver using Rxd and Txd pins.
-
-Each LIN node uses a client server architecture where the server consists of a custom UART receive function, extended with timeout and break detect features required for LIN. The UART receive client C functions are exposed via an API, which are further abstracted by simple LIN master/slave send/receive APIs.
+Each peripheral uses a client server architecture where the server
+consists of a custom UART function, extended with timeout and break
+detect. The client C functions are exposed as a simple API.
 
 Features
 ........
 
- * LIN 2.1 master and slave protocol components
- * 2400 to 115200 baud operation (often limited by physical layer to 20000 baud - please check the data she on your hardware)
- * Timeout and break detection
- * Integrated frame processing with simple application API
- * Single logical core usage per LIN node
+* LIN 2.1 master and slave protocol components
+* 2400 to 115200 baud operation (limited by physical layer)
+* Integrated frame processing with simple application API
+* Timeout and mid-frame break detection
+* Integrated frame processing with simple application API
+* Single logical core per LIN node (either slave or master)
 
-Components
-..........
 
-.. TODO: * component 1
-.. TODO: * component 2
+Typical Resource Usage
+......................
 
-Resource usage
-..............
+.. resusage::
 
-.. TODO: table describing resource usage
+  * - configuration: Master
+    - target: STARTKIT
+    - flags: -DLIN_MAXIMUM_RESPONSE_LENGTH=8 -DTX_RECESSIVE=1 -DTX_DOMINANT=0 -DRX_RECESSIVE=1 -DRX_DOMINANT=0 -DLIN_RESPONSE_SPACE=0 -DLIN_INTERBYTE_SPACE=0 -DLIN_INTERFRAME_SPACE=0 -DLIN_SYNCH_BREAK_BITS_MASTER=13 -DLIN_SYNCH_BREAK_THRESHOLD_SLAVE=11 -DLIN_SYNCH_BREAK_DELIMIT=1 -DLIN_MESSAGE_TIMEOUT=100 -DLIN_MAXIMUM_RESPONSE_LENGTH=8 -DLIN_SYNCH_BYTE=0x55 -DLIN_BIT_TIME=800
+    - globals: out port p_tx = XS1_PORT_4A; in port p_rx = XS1_PORT_4B; lin_frame_t tx_frame;
+    - locals: chan c;
+    - fn: par {{lin_master_init(p_tx, c); lin_master_send_frame(tx_frame, p_tx, c);}lin_rx_server(p_rx, c);}
+    - pins: 2
+    - ports: 2
+    - cores: 1
+  * - configuration: Slave
+    - target: STARTKIT
+    - flags: -DLIN_MAXIMUM_RESPONSE_LENGTH=8 -DTX_RECESSIVE=1 -DTX_DOMINANT=0 -DRX_RECESSIVE=1 -DRX_DOMINANT=0 -DLIN_RESPONSE_SPACE=0 -DLIN_INTERBYTE_SPACE=0 -DLIN_INTERFRAME_SPACE=0 -DLIN_SYNCH_BREAK_BITS_MASTER=13 -DLIN_SYNCH_BREAK_THRESHOLD_SLAVE=11 -DLIN_SYNCH_BREAK_DELIMIT=1 -DLIN_MESSAGE_TIMEOUT=100 -DLIN_MAXIMUM_RESPONSE_LENGTH=8 -DLIN_SYNCH_BYTE=0x55 -DLIN_BIT_TIME=800
+    - globals: out port p_tx = XS1_PORT_4A; in port p_rx = XS1_PORT_4B; lin_frame_t slave_frame;
+    - locals: chan c;
+    - fn: par {{char id;lin_slave_init(p_tx, c); lin_slave_wait_for_header(c, id);lin_slave_get_response(c, slave_frame);lin_slave_send_response(p_tx, c, slave_frame);}lin_rx_server(p_rx, c);}
+    - pins: 2
+    - ports: 2
+    - cores: 1
+
 
 Software version and dependencies
 .................................
 
-This document pertains to version |version| of the LIN library. It is
-intended to be used with version 13.x of the xTIMEcomposer studio tools.
+.. libdeps::
 
-Related application notes
-.........................
 
-The following application notes use this library:
-
-.. TODO:  * ANxxxx - [App note title 1]
-
-.. TODO: move known issues section elsewhere
-Known Issues
-------------
-
-   * Autobaud function in the slave is not implemented. xCORE systems include a precise reference clock removing the need for this feature
-   * LIN Rx pin requires it's own logical port (eg. 1b port or 4b port). In the case where a >1b port width is used, the other signals must be static at runtime
-   * This component assumes the bit time is greater than 2 * LIN propagation time (txd to rxd pin round trip delay)
 
