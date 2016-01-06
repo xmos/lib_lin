@@ -1,4 +1,4 @@
-// Copyright (c) 2015, XMOS Ltd, All rights reserved
+// Copyright (c) 2016, XMOS Ltd, All rights reserved
 #include "lin_master.h"
 #include "lin_rx_client.h"
 #include "lin_utils.h"
