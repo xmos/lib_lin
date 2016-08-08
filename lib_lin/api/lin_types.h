@@ -1,4 +1,4 @@
-// Copyright (c) 2016, XMOS Ltd, All rights reserved
+// Copyright (c) 2013-2016, XMOS Ltd, All rights reserved
 #ifndef _lin_types_h_
 #define _lin_types_h_
 #ifdef __lin_conf_h_exists__
